@@ -5,7 +5,7 @@ import config from '../../config/filter-by';
 
 const Dropdown = () => {
   return (
-    <>
+    <div>
       <Label >{config.title}</Label>
       <Select id={config.id}>
         <Option value=""></Option>
@@ -13,7 +13,7 @@ const Dropdown = () => {
           <Option key={option} value={option}>{option}</Option>
         ))}
       </Select>
-    </>
+    </div>
   );
 }
 
