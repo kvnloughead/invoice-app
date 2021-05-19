@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Spartan';
+  font-display: swap;
+  src: url('./Spartan-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spartan';
+  font-display: swap;
+  src: url('./Spartan-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}

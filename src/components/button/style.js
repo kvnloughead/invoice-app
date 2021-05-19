@@ -14,6 +14,7 @@ export const ButtonContainer = styled.button`
   display: flex;
   align-items: center;
   padding: 8px;
+  font-family: 'Spartan', Arial, sans-serif;
   
   color: ${props => props.styles.hasDarkMode ? props.styles.color[props.mode] : props.styles.color};
   background: ${props => props.styles.hasDarkMode ? props.styles.background[props.mode] : props.styles.background};
