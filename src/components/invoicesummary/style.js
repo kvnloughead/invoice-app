@@ -51,9 +51,9 @@ export const Cost = styled.li`
 `;
 
 const paidStatusColors = {
-  paid: { color: 'rgba(51, 214, 159, 1)', background: 'rgba(51, 214, 159, .0571)' },
-  pending: {},
-  draft: {},
+  Paid: { color: 'rgba(51, 214, 159, 1)', background: 'rgba(51, 214, 159, .0571)' },
+  Pending: {},
+  Draft: {},
 };
 
 export const Dot = styled.span`
