@@ -4,6 +4,7 @@ import Dropdown from '../dropdown/Dropdown';
 import Button from '../button/Button';
 
 import { Container, Title, Text } from  './style';
+import { FlexRow } from '../utility/style';
 
 const TableHeader = () => {
   const [numInvoices, ] = React.useState(7);
@@ -15,8 +16,10 @@ const TableHeader = () => {
           <Title>Invoices</Title>
           <Text>There are {numInvoices} total invoices</Text>
         </div>
-        <Dropdown />
-        <Button type={"newInvoice"} mode={"light"} />
+        <FlexRow ai={'center'}>
+          <Dropdown />
+          <Button type={"newInvoice"} mode={"light"} />
+        </FlexRow>
       </Container>
     </>
   );
