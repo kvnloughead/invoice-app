@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import plusIcon from '../../images/icons/plus.svg';
 
 export const ButtonContainer = styled.button`
-  width: ${props => props.styles.width};
+  width: ${(props) => props.styles.width};
   height: 48px;
   border-radius: 200px;
   border: none;
@@ -16,14 +16,14 @@ export const ButtonContainer = styled.button`
   padding: 8px;
   font-family: 'Spartan', Arial, sans-serif;
   
-  color: ${props => props.styles.hasDarkMode ? props.styles.color[props.mode] : props.styles.color};
-  background: ${props => props.styles.hasDarkMode ? props.styles.background[props.mode] : props.styles.background};
+  color: ${(props) => (props.styles.hasDarkMode ? props.styles.color[props.mode] : props.styles.color)};
+  background: ${(props) => (props.styles.hasDarkMode ? props.styles.background[props.mode] : props.styles.background)};
   &:hover {
-    background: ${props => props.styles.hasDarkMode ? props.styles.hover[props.mode] : props.styles.hover};
+    background: ${(props) => (props.styles.hasDarkMode ? props.styles.hover[props.mode] : props.styles.hover)};
   }
 
-  justify-content:${props => props.type === 'newInvoice' ? 'space-between' : 'center'};
-  padding-right: ${props => props.type === 'newInvoice' && '15px'};
+  justify-content:${(props) => (props.type === 'newInvoice' ? 'space-between' : 'center')};
+  padding-right: ${(props) => props.type === 'newInvoice' && '15px'};
 `;
 
 export const PlusInCircle = styled.div`

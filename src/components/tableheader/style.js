@@ -24,4 +24,3 @@ export const Text = styled.p`
   color: #888EB0;
   margin: 0;
 `;
-

@@ -54,7 +54,7 @@ const paidStatusColors = {
   paid: { color: 'rgba(51, 214, 159, 1)', background: 'rgba(51, 214, 159, .0571)' },
   pending: {},
   draft: {},
-}
+};
 
 export const Dot = styled.span`
   font-size: 32px;
@@ -66,8 +66,8 @@ export const PaidStatus = styled.li`
   font-weight: 700;
   width: 104px;
   height: 40px;
-  color: ${props => props.status && paidStatusColors[props.status].color};
-  background: ${props => props.status && paidStatusColors[props.status].background};
+  color: ${(props) => props.status && paidStatusColors[props.status].color};
+  background: ${(props) => props.status && paidStatusColors[props.status].background};
   border-radius: 3px;
   justify-self: end;
 `;
@@ -80,4 +80,3 @@ export const RightArrow = styled.i`
   background-repeat: no-repeat;
   justify-self: center;
 `;
-
