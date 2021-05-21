@@ -8,7 +8,7 @@ const formatDate = (date) => {
 const formatCost = (cost) => {
   const bills = Math.floor(cost);
   const coins = `.${parseFloat(cost - Math.floor(cost)).toFixed(2).split('.')[1]}`;
-  return `￡ ${Number(bills).toLocaleString()}${coins}`;
+  return `£ ${Number(bills).toLocaleString()}${coins}`;
 };
 
 const capitalizeFirstLetter = (word) => `${word[0].toUpperCase()}${word.slice(1)}`;

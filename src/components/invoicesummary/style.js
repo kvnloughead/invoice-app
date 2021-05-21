@@ -19,6 +19,9 @@ export const SummaryContainer = styled.ul`
   padding: 0;
   list-style: none;
   height: 72px;
+  margin-bottom: 16px;
+  box-shadow: 0px 10px 10px -10px #48549F1A;
+  border-radius: 8px;
   ${fontStyles}
 `;
 
@@ -52,13 +55,13 @@ export const Cost = styled.li`
 
 const paidStatusColors = {
   Paid: { color: 'rgba(51, 214, 159, 1)', background: 'rgba(51, 214, 159, .0571)' },
-  Pending: {},
-  Draft: {},
+  Pending: { color: 'rgba(255, 143, 0, 1)', background: 'rgba(255, 143, 0, .0571)' },
+  Draft: { color: 'rgba(55, 59, 83, 1)', background: 'rgba(55, 59, 83, .0571)' },
 };
 
 export const Dot = styled.span`
   font-size: 32px;
-  vertical-align: bottom;
+  vertical-align: sub;
 `;
 
 export const PaidStatus = styled.li`
