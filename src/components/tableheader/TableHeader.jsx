@@ -17,7 +17,7 @@ const TableHeader = () => {
           <Title>Invoices</Title>
           <Text>
             There are
-            {numInvoices}
+            {` ${numInvoices}`}
             {' '}
             total invoices
           </Text>

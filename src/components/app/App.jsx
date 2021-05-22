@@ -7,31 +7,26 @@ import Sidebar from '../sidebar/Sidebar';
 import Table from '../table/Table';
 import TableHeader from '../tableheader/TableHeader';
 
-import Toggle from '../toggler/Toggler';
+import Toggler from '../toggler/Toggler';
 import useDarkMode from '../hooks/useDarkMode';
 import GlobalStyles from '../globalstyles/GlobalStyles';
 import { darkTheme, lightTheme } from '../themes/Themes';
 
-// import AppContext from '../../contexts/AppContext';
-
 function App() {
-  // const [isDark, setIsDark] = useState(false);
-
   const [theme, themeToggler] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   return (
-  // <AppContext.Provider value={{ isDark: [isDark, setIsDark] }}>
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <div className="App">
-        <Toggle theme={theme} toggleTheme={themeToggler} />
-        <Sidebar />
+        <Sidebar>
+          <Toggler theme={theme} toggleTheme={themeToggler} />
+        </Sidebar>
         <TableHeader />
         <Table />
       </div>
     </ThemeProvider>
-  // </AppContext.Provider>
   );
 }
 

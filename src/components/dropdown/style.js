@@ -6,7 +6,7 @@ export const Label = styled.label`
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #0C0E16;
+  color: ${({ theme }) => theme.colorPrimary};
 `;
 
 export const Select = styled.select`

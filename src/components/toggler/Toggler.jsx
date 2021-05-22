@@ -1,27 +1,29 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
-import { func, string } from 'prop-types';
+import { func } from 'prop-types';
 import styled from 'styled-components';
 
+import moon from '../../images/icon-moon.svg';
+import sun from '../../images/icon-sun.svg';
+import { bgStandard } from '../../utils/utility-styles';
+
 const Button = styled.button`
-  background: ${({ theme }) => theme.background};
-  border: 2px solid ${({ theme }) => theme.toggleBorder};
-  color: ${({ theme }) => theme.text};
-  border-radius: 30px;
-  cursor: pointer;
-  font-size:0.8rem;
-  padding: 0.6rem;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  justify-self: flex-end;
+  ${bgStandard((({ theme }) => (theme.isLight ? moon : sun)))}
+  background-size: 20px 20px;
+  padding: 42px 51.5px;
+  border-bottom: solid 1px #494E6E;
   }
 `;
 
-// eslint-disable-next-line no-unused-vars
-const Toggler = ({ theme, toggleTheme }) => (
-  <Button onClick={toggleTheme}>
-    Switch Theme
-  </Button>
+const Toggler = ({ toggleTheme }) => (
+  <Button onClick={toggleTheme} />
 );
 Toggler.propTypes = {
-  theme: string.isRequired,
   toggleTheme: func.isRequired,
 };
 export default Toggler;

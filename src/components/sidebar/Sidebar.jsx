@@ -1,22 +1,24 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
-// import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import avatar from '../../images/image-avatar.jpg';
-// import AppContext from '../../contexts/AppContext';
 import {
   SidebarContainer, Logo, Avatar, FlexRow,
 } from './style';
 
-// const ModeIcon = styled.button`${ModeIconStyles}`;
-
-const Sidebar = () => (
+const Sidebar = ({ children }) => (
   <SidebarContainer>
     <Logo />
     <FlexRow>
-      {/* <ModeIcon isDark={isDark.value} /> */}
+      {children}
       <Avatar src={avatar} alt="Current user's avatar" />
     </FlexRow>
   </SidebarContainer>
 );
+
+Sidebar.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
 export default Sidebar;

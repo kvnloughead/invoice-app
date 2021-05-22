@@ -1,8 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import logo from '../../images/logo.svg';
-import moon from '../../images/icon-moon.svg';
-import sun from '../../images/icon-sun.svg';
 
 import { bgStandard, flexCenter } from '../../utils/utility-styles';
 
@@ -11,7 +9,7 @@ export const SidebarContainer = styled.aside`
   left: 0;
   height: 100vh;
   width: 103px;
-  background: #373B53;
+  background: ${({ theme }) => theme.bgSidebar};
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   ${flexCenter('column')}
@@ -55,18 +53,6 @@ export const Logo = styled.div`
 export const FlexRow = styled.div`
   ${flexCenter('column')}
   width: 100%;
-`;
-
-export const ModeIconStyles = css`
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  border: none;
-  justify-self: flex-end;
-  ${bgStandard(((props) => (props.isDark ? sun : moon)))}
-  background-size: 20px 20px;
-  padding: 42px 51.5px;
-  border-bottom: solid 1px #494E6E;
 `;
 
 export const Avatar = styled.img`

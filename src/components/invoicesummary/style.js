@@ -14,7 +14,7 @@ export const SummaryContainer = styled.ul`
   align-items: center;
   grid-template-columns: 135px 151px 1fr 1fr 144px 48px;
   box-shadow: 0px 10px 10px -10px #48549F1A;
-  background: #fff;
+  background: ${({ theme }) => theme.bgInvoice};
   margin: 0; 
   padding: 0;
   list-style: none;
@@ -32,16 +32,16 @@ export const NumberSign = styled.span`
 
 export const Id = styled.li`
   font-weight: 700;
-  color: #0C0E16;
+  color: ${({ theme }) => theme.colorPrimary};
   padding-left: 32px;
 `;
 
 export const Date = styled.li`
-  color: #888EB0;
+  color: ${({ theme }) => theme.colorDate};
 `;
 
 export const Name = styled.li`
-  color: #858BB2;
+  color: ${({ theme }) => theme.colorName};
 `;
 
 export const Cost = styled.li`
@@ -51,6 +51,7 @@ export const Cost = styled.li`
   letter-spacing: -0.8px;
   color: #0C0E16;
   text-align: right;
+  color: ${({ theme }) => theme.colorPrimary};
 `;
 
 const paidStatusColors = {
