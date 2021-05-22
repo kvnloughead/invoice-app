@@ -1,6 +1,4 @@
 .App {
-  background: #f2f2f2;
-  font-family: 'Spartan', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
