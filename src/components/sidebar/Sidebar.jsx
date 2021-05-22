@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
-// import st  yled from 'styled-components';
+// import styled from 'styled-components';
 
 import avatar from '../../images/image-avatar.jpg';
 // import AppContext from '../../contexts/AppContext';
