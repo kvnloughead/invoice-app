@@ -6,7 +6,7 @@ export const lightTheme = {
   bgSidebar: '#373B53',
   bgInvoice: '#FFFFFF',
   colorPrimary: '#0C0E16',
-  colorDate: '#7E88C3',
+  colorSecondary: '#7E88C3',
   colorName: '#858BB2',
   nothingHere,
 };
@@ -16,7 +16,7 @@ export const darkTheme = {
   bgSidebar: '#1E2139',
   bgInvoice: '#1E2139',
   colorPrimary: '#FFFFFF',
-  colorDate: '#DFE3FA',
+  colorSecondary: '#DFE3FA',
   colorName: '#DFE3FA',
   nothingHere: '../../images/nothing-here-dark.png',
 };

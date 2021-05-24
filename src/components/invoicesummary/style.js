@@ -25,19 +25,20 @@ export const SummaryContainer = styled.ul`
   ${fontStyles}
 `;
 
-export const NumberSign = styled.span`
-  font-weight: 700;
-  color: #888EB0;
-`;
-
 export const Id = styled.li`
   font-weight: 700;
   color: ${({ theme }) => theme.colorPrimary};
   padding-left: 32px;
+
+  &:before {
+    content: "#";
+    font-weight: 700;
+    color: #888EB0;
+  }
 `;
 
 export const Date = styled.li`
-  color: ${({ theme }) => theme.colorDate};
+  color: ${({ theme }) => theme.colorSecondary};
 `;
 
 export const Name = styled.li`
@@ -76,7 +77,7 @@ export const PaidStatus = styled.li`
   justify-self: end;
 `;
 
-export const RightArrow = styled.i`
+export const ViewInvoiceButton = styled.i`
   background-image: url('${rightArrowIcon}');
   width: 32px;
   height: 32px;
