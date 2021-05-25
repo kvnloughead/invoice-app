@@ -4,10 +4,10 @@ import PropTypes, { string } from 'prop-types';
 
 import { lineItemNames } from '../../utils/constants';
 import {
-  Table, TableRow, TH, TD,
+  Table, TableRow, TH, TD, TableFooterRow, TF,
 } from './style';
 
-const LineItems = (({ items }) => (
+const LineItems = (({ items, total }) => (
   <Table>
     <thead>
       <TableRow>
@@ -25,6 +25,12 @@ const LineItems = (({ items }) => (
         </TableRow>
       ))}
     </tbody>
+    <tfoot>
+      <TableFooterRow>
+        <TF>Amount Due</TF>
+        <TF>{ total }</TF>
+      </TableFooterRow>
+    </tfoot>
   </Table>
 ));
 
@@ -35,6 +41,7 @@ LineItems.propTypes = {
     price: string.isRequired,
     total: string.isRequired,
   })).isRequired,
+  total: string.isRequired,
 };
 
 export default LineItems;

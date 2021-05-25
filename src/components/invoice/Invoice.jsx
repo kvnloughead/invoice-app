@@ -32,7 +32,7 @@ const Invoice = () => {
         <Item row="2" col="3">{currentInvoice.clientEmail}</Item>
       </Middle>
       <SentTo />
-      <LineItems items={currentInvoice.items} />
+      <LineItems items={currentInvoice.items} total={currentInvoice.total} />
       <AmountDue />
     </InvoiceContainer>
   );

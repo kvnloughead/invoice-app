@@ -5,8 +5,8 @@ import './App.css';
 
 import AppContext from '../../contexts/AppContext';
 import Sidebar from '../sidebar/Sidebar';
-import Table from '../table/Table';
-import TableHeader from '../tableheader/TableHeader';
+import SummaryHeader from '../summaryheader/SummaryHeader';
+import SummaryTable from '../summarytable/SummaryTable';
 
 import Toggler from '../toggler/Toggler';
 import useDarkMode from '../hooks/useDarkMode';
@@ -27,8 +27,8 @@ function App() {
           <Sidebar>
             <Toggler theme={theme} toggleTheme={themeToggler} />
           </Sidebar>
-          <TableHeader />
-          <Table />
+          <SummaryHeader />
+          <SummaryTable />
         </div>
       </AppContext.Provider>
     </ThemeProvider>

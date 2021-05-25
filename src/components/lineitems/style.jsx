@@ -1,4 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const headerFontStyles = css`
+  font-weight: 500; 
+  font-size: 11px;
+  line-height: 18px; 
+  letter-spacing: -0.23px; 
+`;
 
 export const Table = styled.table`
   margin-top: 45px;
@@ -12,10 +19,7 @@ export const TableRow = styled.tr`
 `;
 
 export const TH = styled.th`
-  font-weight: 500; 
-  font-size: 11px;
-  line-height: 18px; 
-  letter-spacing: -0.23px; 
+  ${headerFontStyles}
   padding-bottom: 32px;
   color: ${({ theme }) => theme.colorSecondary};
   text-align: ${({ row }) => ['left', 'center', 'right', 'right'][row]};
@@ -28,4 +32,25 @@ export const TD = styled.td`
   letter-spacing: -0.25px;
   padding-bottom: 32px;
   text-align: ${({ row }) => ['left', 'center', 'right', 'right'][row]};
+`;
+
+export const TableFooterRow = styled.tr`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #373B53;
+  border-radius: 0 0 10px 10px;
+  height: 80px;
+  padding: 0 32px;
+`;
+
+export const TF = styled.td`
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  &:first-of-type {
+    ${headerFontStyles}
+  }
 `;

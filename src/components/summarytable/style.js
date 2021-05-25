@@ -9,7 +9,7 @@ export const NothingHere = styled.img.attrs(({ theme }) => ({
   padding-top: 141px;
 `;
 
-export const TableContainer = styled.div`
+export const SummaryContainer = styled.div`
   width: 730px;
   padding-top: 65px;
 `;

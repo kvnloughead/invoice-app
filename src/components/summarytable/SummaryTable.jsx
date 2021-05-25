@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 
 import AppContext from '../../contexts/AppContext';
 
-import { TableContainer, NothingHere } from './style';
+import { SummaryContainer, NothingHere } from './style';
 import invoices from '../../utils/data.json';
 import { processInvoices } from '../../utils/helpers';
 
@@ -23,11 +23,11 @@ function Table() {
   }
 
   return (
-    <TableContainer>
+    <SummaryContainer>
       {processedInvoices.map((invoice) => (
         <InvoiceSummary data={invoice} key={invoice.id} />
       ))}
-    </TableContainer>
+    </SummaryContainer>
   );
 }
 

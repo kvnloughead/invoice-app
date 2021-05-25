@@ -7,7 +7,7 @@ import Button from '../button/Button';
 import { Container, Title, Text } from './style';
 import { FlexRow } from '../utility/style';
 
-const TableHeader = () => {
+const SummaryHeader = () => {
   const [numInvoices] = React.useState(7);
 
   return (
@@ -31,4 +31,4 @@ const TableHeader = () => {
   );
 };
 
-export default TableHeader;
+export default SummaryHeader;
