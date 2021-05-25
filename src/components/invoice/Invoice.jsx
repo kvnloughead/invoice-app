@@ -3,10 +3,11 @@ import React from 'react';
 
 import AppContext from '../../contexts/AppContext';
 import Address from '../address/Address';
+import LineItems from '../lineitems/LineItems';
 
 import {
   InvoiceContainer, TopLeft, Id, Description, Middle,
-  Label, Item, SentTo, LineItems, AmountDue,
+  Label, Item, SentTo, AmountDue,
 } from './style';
 
 const Invoice = () => {
@@ -31,7 +32,7 @@ const Invoice = () => {
         <Item row="2" col="3">{currentInvoice.clientEmail}</Item>
       </Middle>
       <SentTo />
-      <LineItems />
+      <LineItems items={currentInvoice.items} />
       <AmountDue />
     </InvoiceContainer>
   );

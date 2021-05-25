@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import buttonConfig from '../../utils/constants';
+import { buttonConfig } from '../../utils/constants';
 import { ButtonContainer, PlusInCircle } from './style';
 
 const Button = ({ type, mode }) => (

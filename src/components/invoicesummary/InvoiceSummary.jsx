@@ -26,7 +26,7 @@ const InvoiceSummary = ({ data }) => {
           {data.status}
         </p>
       </PaidStatus>
-      <ViewInvoiceButton onClick={viewInvoice} />
+      <ViewInvoiceButton onClick={() => viewInvoice(data)} />
     </SummaryContainer>
   );
 };

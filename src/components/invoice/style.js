@@ -21,11 +21,12 @@ const textSecondary = css`
 export const InvoiceContainer = styled.div`
   height: 631px;
   width: 730px;
+  box-sizing: border-box;
   margin-top: 24px;
   background: ${({ theme }) => theme.bgInvoice};
   display: grid;
   grid-template-rows: 75px 196px 1fr;
-  grid-template-columns: 196px 210px 1fr;
+  grid-template-columns: 196px 203px 1fr;
   padding: 48px;
   ${textPrimary}
 `;
@@ -38,6 +39,9 @@ export const TopLeft = styled.div`
 `;
 
 export const Id = styled.h2`
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.8px;
   font-weight: 700;
   color: ${({ theme }) => theme.colorPrimary};
   margin: 0 0 8px;

@@ -1,4 +1,11 @@
-const buttonConfig = {
+export const lineItemNames = {
+  name: 'Item Name',
+  quantity: 'QTY.',
+  price: 'price',
+  total: 'total',
+};
+
+export const buttonConfig = {
   newInvoice: {
     hasDarkMode: false,
     styles: {
@@ -65,5 +72,3 @@ const buttonConfig = {
     label: '+ Add New Item',
   },
 };
-
-export default buttonConfig;
