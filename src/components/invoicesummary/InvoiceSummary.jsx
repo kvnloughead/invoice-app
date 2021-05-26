@@ -3,9 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import AppContext from '../../contexts/AppContext';
+import PaidStatus from '../paidstatus/PaidStatus';
 
 import {
-  SummaryContainer, Id, Date, Name, Cost, Dot, PaidStatus, ViewInvoiceButton,
+  SummaryContainer, Id, Date, Name, Cost, ViewInvoiceButton,
 } from './style';
 
 const InvoiceSummary = ({ data }) => {
@@ -20,12 +21,7 @@ const InvoiceSummary = ({ data }) => {
       <Date>{data.createdAt}</Date>
       <Name>{data.clientName}</Name>
       <Cost>{data.total}</Cost>
-      <PaidStatus status={data.status}>
-        <p>
-          <Dot>&middot;</Dot>
-          {data.status}
-        </p>
-      </PaidStatus>
+      <PaidStatus status={data.status} />
       <ViewInvoiceButton onClick={() => viewInvoice(data)} />
     </SummaryContainer>
   );

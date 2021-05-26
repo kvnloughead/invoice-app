@@ -1,25 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const textPrimary = css`
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 20px;
-  letter-spacing: -0.3125px;
-  font-style: normal;
-  color: ${({ theme }) => theme.colorPrimary};
-`;
-
-const textSecondary = css`
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 15px;
-  letter-spacing: -0.25px;
-  font-style: normal;
-  color: ${({ theme }) => theme.colorSecondary};
-`;
+import { secondaryTextStyles, primaryTextStyles } from '../../utils/utility-styles';
 
 export const InvoiceContainer = styled.div`
-  height: 631px;
   width: 730px;
   box-sizing: border-box;
   margin-top: 24px;
@@ -28,7 +11,7 @@ export const InvoiceContainer = styled.div`
   grid-template-rows: 75px 196px 1fr;
   grid-template-columns: 196px 203px 1fr;
   padding: 48px;
-  ${textPrimary}
+  ${primaryTextStyles}
 `;
 
 export const TopLeft = styled.div`
@@ -54,7 +37,7 @@ export const Id = styled.h2`
 `;
 
 export const Description = styled.p`
-  ${textSecondary}
+  ${secondaryTextStyles}
   margin: 0;
 `;
 
@@ -68,14 +51,14 @@ export const Middle = styled.dl`
 `;
 
 export const Label = styled.dt`
-  ${textSecondary}
+  ${secondaryTextStyles}
   margin-bottom: 12px;
   grid-row: ${({ row }) => row};
   grid-column: ${({ col }) => col};
 `;
 
 export const Item = styled.dd`
-  ${textPrimary}
+  ${primaryTextStyles}
   margin: 0;
   grid-row: ${({ row }) => row};
   grid-column: ${({ col }) => col};
@@ -84,14 +67,14 @@ export const Item = styled.dd`
 export const InvoiceDate = styled.div`
   display: flex;
   flex-direction: column;
-  ${textPrimary}
+  ${primaryTextStyles}
   margin-bottom: 32px;
 `;
 
 export const PaymentDue = styled.div`
   display: flex;
   flex-direction: column;
-  ${textPrimary}
+  ${primaryTextStyles}
   margin-bottom: 32px;
 `;
 

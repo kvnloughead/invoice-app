@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 import Dropdown from '../dropdown/Dropdown';
 import Button from '../button/Button';
 
-import { Container, Title, Text } from './style';
-import { FlexRow } from '../utility/style';
+import {
+  Container, Title, Text, Row,
+} from './style';
 
 const SummaryHeader = ({ numInvoices }) => (
   <>
@@ -20,10 +21,10 @@ const SummaryHeader = ({ numInvoices }) => (
           total invoices
         </Text>
       </div>
-      <FlexRow ai="center">
+      <Row ai="center">
         <Dropdown />
         <Button type="newInvoice" mode="light" />
-      </FlexRow>
+      </Row>
     </Container>
   </>
 );

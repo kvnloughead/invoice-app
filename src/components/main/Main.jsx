@@ -15,7 +15,7 @@ import InvoiceSummary from '../invoicesummary/InvoiceSummary';
 function Main() {
   const { currentInvoice } = React.useContext(AppContext);
   const processedInvoices = useMemo(() => processInvoices(invoices));
-  const numInvoices = processInvoices.length;
+  const numInvoices = processedInvoices.length;
 
   if (numInvoices === 0) {
     return (<NothingHere />);
@@ -32,7 +32,7 @@ function Main() {
 
   return (
     <>
-      <SummaryHeader numInvoices />
+      <SummaryHeader numInvoices={numInvoices} />
       <SummaryContainer>
         {processedInvoices.map((invoice) => (
           <InvoiceSummary data={invoice} key={invoice.id} />
