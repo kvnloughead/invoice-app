@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { secondaryTextStyles, flexColumnStyles } from '../../utils/utility-styles';
+import { secondaryTextStyles, flexColumnStyles, flexRowStyles } from '../../utils/utility-styles';
 import leftArrow from '../../images/icon-arrow-left.svg';
 
 export const Container = styled.div`
@@ -38,10 +38,21 @@ export const Toolbar = styled.ul`
   margin-bottom: 16px;
   box-shadow: 0px 10px 10px -10px #48549F1A;
   border-radius: 8px;
-  ${flexColumnStyles({ ai: 'center' })}
+  ${flexColumnStyles({ ai: 'center', jc: 'space-between' })}
+  box-sizing: border-box;
 `;
 
 export const Label = styled.h3`
   ${secondaryTextStyles}
   margin: 0;
+  margin-right: 16px;
+`;
+
+export const FlexRow = styled.div`
+  ${flexRowStyles({ ai: 'center' })}
+`;
+
+export const Buttons = styled.ul`
+  ${flexRowStyles({})}
+  gap: 8px;
 `;

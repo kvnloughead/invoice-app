@@ -12,6 +12,8 @@ const paidStatusColors = {
 const Container = styled.li`
   text-align: center;
   font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
   width: 104px;
   height: 40px;
   color: ${(props) => props.status && paidStatusColors[props.status].color};

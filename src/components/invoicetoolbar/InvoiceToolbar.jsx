@@ -2,8 +2,11 @@
 import React from 'react';
 
 import AppContext from '../../contexts/AppContext';
+import PaidStatus from '../paidstatus/PaidStatus';
+import Button from '../button/Button';
+
 import {
-  Container, GoBack, Toolbar, Label,
+  Container, GoBack, Toolbar, Label, FlexRow, Buttons,
 } from './style';
 
 const InvoiceToolbar = () => {
@@ -13,7 +16,15 @@ const InvoiceToolbar = () => {
     <Container>
       <GoBack>Go back</GoBack>
       <Toolbar currentInvoice={currentInvoice}>
-        <Label>Status</Label>
+        <FlexRow>
+          <Label>Status</Label>
+          <PaidStatus status={currentInvoice.status} />
+        </FlexRow>
+        <Buttons>
+          <Button type="edit" />
+          <Button type="delete" />
+          <Button type="markPaid" />
+        </Buttons>
       </Toolbar>
     </Container>
   );
