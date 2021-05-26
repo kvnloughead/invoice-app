@@ -10,7 +10,7 @@ export const Container = styled.div`
   align-items: baseline;
 `;
 
-export const GoBack = styled.button`
+export const BackButton = styled.button`
   margin: 64px 0 32px;
   height: 15px;
   padding: 0;
@@ -18,6 +18,7 @@ export const GoBack = styled.button`
   background-size: 4px 8.5px;
   background-repeat: no-repeat;
   background-position: left;
+  background-color: transparent;
   background-image: url('${leftArrow}');
   font-weight: 700;
   font-size: 12px;

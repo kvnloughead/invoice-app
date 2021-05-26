@@ -6,7 +6,7 @@ import PaidStatus from '../paidstatus/PaidStatus';
 import Button from '../button/Button';
 
 import {
-  Container, GoBack, Toolbar, Label, FlexRow, Buttons,
+  Container, BackButton, Toolbar, Label, FlexRow, Buttons,
 } from './style';
 
 const InvoiceToolbar = () => {
@@ -14,7 +14,7 @@ const InvoiceToolbar = () => {
 
   return (
     <Container>
-      <GoBack>Go back</GoBack>
+      <BackButton>Go back</BackButton>
       <Toolbar currentInvoice={currentInvoice}>
         <FlexRow>
           <Label>Status</Label>
@@ -23,7 +23,7 @@ const InvoiceToolbar = () => {
         <Buttons>
           <Button type="edit" />
           <Button type="delete" />
-          <Button type="markPaid" />
+          <Button type="markAsPaid" />
         </Buttons>
       </Toolbar>
     </Container>

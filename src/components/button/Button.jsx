@@ -2,21 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { buttonConfig } from '../../utils/constants';
+import { buttonLabels } from '../../utils/constants';
 import { ButtonContainer, PlusInCircle } from './style';
 
-const Button = ({ type, mode }) => (
+const Button = ({ type }) => (
   <>
-    <ButtonContainer type={type} mode={mode} styles={buttonConfig[type].styles}>
+    <ButtonContainer type={type}>
       {type === 'newInvoice' && <PlusInCircle />}
-      { buttonConfig[type].label }
+      { buttonLabels[type] }
     </ButtonContainer>
   </>
 );
 
 Button.propTypes = {
   type: PropTypes.string.isRequired,
-  mode: PropTypes.string.isRequired,
 };
 
 export default Button;
