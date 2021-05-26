@@ -10,11 +10,15 @@ import {
 } from './style';
 
 const InvoiceToolbar = () => {
-  const { currentInvoice } = React.useContext(AppContext);
+  const { currentInvoice, setCurrentInvoice } = React.useContext(AppContext);
+
+  const goBack = () => {
+    setCurrentInvoice(null);
+  };
 
   return (
     <Container>
-      <BackButton>Go back</BackButton>
+      <BackButton onClick={goBack}>Go back</BackButton>
       <Toolbar currentInvoice={currentInvoice}>
         <FlexRow>
           <Label>Status</Label>

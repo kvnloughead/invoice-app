@@ -7,6 +7,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Spartan', Helvetica, Arial, sans-serif;
     transition: all 0.50s linear;
   }
+  a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyles;

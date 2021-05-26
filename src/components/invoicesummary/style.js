@@ -55,8 +55,10 @@ export const Cost = styled.li`
   color: ${({ theme }) => theme.colorPrimary};
 `;
 
-export const ViewInvoiceButton = styled.i`
+export const ViewInvoiceButton = styled.button`
   background-image: url('${rightArrowIcon}');
+  border: none;
+  background-color: transparent;
   width: 32px;
   height: 32px;
   background-position: center;
