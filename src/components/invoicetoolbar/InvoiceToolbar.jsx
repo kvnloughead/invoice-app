@@ -10,10 +10,16 @@ import {
 } from './style';
 
 const InvoiceToolbar = () => {
-  const { currentInvoice, setCurrentInvoice } = React.useContext(AppContext);
+  const { currentInvoice, setCurrentInvoice, setCurrentForm } = React.useContext(AppContext);
 
   const goBack = () => {
     setCurrentInvoice(null);
+  };
+
+  const openEditForm = () => {
+    // eslint-disable-next-line no-debugger
+    debugger;
+    setCurrentForm('edit');
   };
 
   return (
@@ -25,7 +31,7 @@ const InvoiceToolbar = () => {
           <PaidStatus status={currentInvoice.status} />
         </FlexRow>
         <Buttons>
-          <Button type="edit" />
+          <Button type="edit" handleClick={openEditForm} />
           <Button type="delete" />
           <Button type="markAsPaid" />
         </Buttons>

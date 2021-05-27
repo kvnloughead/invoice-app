@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { buttonLabels } from '../../utils/constants';
 import { ButtonContainer, PlusInCircle } from './style';
 
-const Button = ({ type }) => (
+const Button = ({ type, handleClick }) => (
   <>
-    <ButtonContainer type={type}>
+    <ButtonContainer type={type} onClick={handleClick}>
       {type === 'newInvoice' && <PlusInCircle />}
       { buttonLabels[type] }
     </ButtonContainer>
@@ -16,6 +16,7 @@ const Button = ({ type }) => (
 
 Button.propTypes = {
   type: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Button;

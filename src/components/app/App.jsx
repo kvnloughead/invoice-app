@@ -6,6 +6,7 @@ import './App.css';
 import AppContext from '../../contexts/AppContext';
 import Sidebar from '../sidebar/Sidebar';
 import Main from '../main/Main';
+import Form from '../form/Form';
 
 import Toggler from '../toggler/Toggler';
 import useDarkMode from '../hooks/useDarkMode';
@@ -14,19 +15,24 @@ import { darkTheme, lightTheme } from '../themes/Themes';
 
 function App() {
   const [currentInvoice, setCurrentInvoice] = React.useState(null);
+  const [currentForm, setCurrentForm] = React.useState(null);
+  const state = {
+    currentInvoice, setCurrentInvoice, currentForm, setCurrentForm,
+  };
 
   const [theme, themeToggler] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   return (
     <ThemeProvider theme={themeMode}>
-      <AppContext.Provider value={{ currentInvoice, setCurrentInvoice }}>
+      <AppContext.Provider value={state}>
         <GlobalStyles />
         <div className="App">
           <Sidebar>
             <Toggler theme={theme} toggleTheme={themeToggler} />
           </Sidebar>
           <Main />
+          <Form />
         </div>
       </AppContext.Provider>
     </ThemeProvider>
