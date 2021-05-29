@@ -29,8 +29,8 @@ const Input = ({
         {data.label}
       </Label>
       <InputElement
-        id={data.label}
-        name={data.label}
+        id={data.keys.join('.')}
+        name={data.keys.join('.')}
         defaultValue={inputValue}
         onChange={handleChange}
         width={data.width}

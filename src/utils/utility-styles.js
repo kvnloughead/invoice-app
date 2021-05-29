@@ -2,9 +2,11 @@ import { css } from 'styled-components';
 
 export const bgStandard = (image) => css`
   background-image: url('${image}');
+  background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
+  border: none;
 `;
 
 export const flexCenter = (orientation) => css`

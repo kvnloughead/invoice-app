@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import AppContext from '../../contexts/AppContext';
 import { formConfig, dateInputConfig, descriptionInputConfig } from '../../utils/constants';
+
 import Input from '../input/Input';
 import DateInput from '../dateinput/DateInput';
 import Dropdown from '../dropdown/Dropdown';
@@ -14,8 +15,10 @@ import {
 } from './style';
 
 const Form = () => {
-  const { currentForm: form, currentInvoice: invoice } = React.useContext(AppContext);
-  const thisForm = formConfig[form];
+  const {
+    currentForm, currentInvoice, setCurrentInvoice, setCurrentForm,
+  } = React.useContext(AppContext);
+  const thisForm = formConfig[currentForm];
 
   const [values, setValues] = useState({});
   // const [, setErrors] = useState({});
@@ -32,9 +35,30 @@ const Form = () => {
   //   [setValues, setErrors, setIsValid],
   // );
 
-  return form && (
-    <FormContainer form={form}>
-      <Title>{`${thisForm.title} ${invoice.id}`}</Title>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (currentForm === 'edit') {
+      const newInvoice = { ...currentInvoice };
+      Object.entries(values).forEach(([name, value]) => {
+        const keys = name.split('.');
+        if (keys.length > 1) {
+          newInvoice[keys[0]][keys[1]] = value;
+        } else {
+          newInvoice[keys[0]] = value;
+        }
+      });
+      setCurrentInvoice(newInvoice);
+      setCurrentForm(null);
+    }
+  };
+
+  const handleCancel = () => {
+    setCurrentForm(null);
+  };
+
+  return currentForm && (
+    <FormContainer form={currentForm}>
+      <Title>{`${thisForm.title} ${currentInvoice.id}`}</Title>
       {thisForm.fieldsets.map((fieldset) => (
         <FieldSet>
           <Legend>{fieldset.legend}</Legend>
@@ -50,10 +74,10 @@ const Form = () => {
         <Dropdown type="paymentTerms" />
         <Input values={values} setValues={setValues} data={descriptionInputConfig} />
       </FieldSet>
-      <ItemsList items={invoice.items} />
+      <ItemsList items={currentInvoice.items} />
       <Buttons>
-        <Button type="cancel" />
-        <Button type="saveChanges" />
+        <Button type="cancel" handleClick={handleCancel} />
+        <Button type="saveChanges" handleClick={handleSubmit} />
       </Buttons>
     </FormContainer>
   );

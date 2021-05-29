@@ -2,13 +2,13 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 
 const formatDate = (date) => {
   const [y, m, d] = date.split('-');
-  return `Due ${d} ${months[parseInt(m, 10)]} ${y}`;
+  return `${d} ${months[parseInt(m, 10)]} ${y}`;
 };
 
 const formatMoney = (cost, symbol) => {
   const bills = Math.floor(cost);
   const coins = `.${parseFloat(cost - Math.floor(cost)).toFixed(2).split('.')[1]}`;
-  return `${symbol} ${Number(bills).toLocaleString()}${coins}`;
+  return `${symbol}${Number(bills).toLocaleString()}${coins}`;
 };
 
 const capitalizeFirstLetter = (word) => `${word[0].toUpperCase()}${word.slice(1)}`;
@@ -21,13 +21,31 @@ export const processInvoices = (invoices) => {
     createdAt: formatDate(invoice.createdAt),
     paymentDue: formatDate(invoice.paymentDue),
     clientName: invoice.clientName,
-    total: formatMoney(invoice.total, '£'),
+    total: formatMoney(invoice.total, '£ '),
     status: capitalizeFirstLetter(invoice.status),
     items: invoice.items.map((item) => ({
       ...item,
-      price: formatMoney(item.price, '£'),
-      total: formatMoney(item.total, '£'),
+      price: formatMoney(item.price, '£ '),
+      total: formatMoney(item.total, '£ '),
     })),
   }));
   return processedInvoices;
+};
+
+export const formatItemsList = (items) => {
+  const formattedItems = items.map((item) => ({
+    ...item,
+    price: item.price.split(' ')[1],
+    total: item.total.split(' ')[1],
+  }));
+  return formattedItems;
+};
+
+export const accessObjectProperty = (obj, keys) => {
+  const newKeys = typeof keys === 'string' ? keys.split('.') : keys;
+  let current = obj;
+  newKeys.forEach((key) => {
+    current = current[key];
+  });
+  return current;
 };
