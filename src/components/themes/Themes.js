@@ -29,10 +29,16 @@ export const lightTheme = {
       hover: '#DFE3FA',
       width: '73px',
     },
-    save: {
+    saveAsDraft: {
       background: '#373B53',
       color: '#888EB0',
       hover: '#0C0E16',
+      width: '133px',
+    },
+    saveChanges: {
+      background: '#7C5DFA',
+      color: '#FFF',
+      hover: '#9277FF',
       width: '133px',
     },
     delete: {
@@ -41,11 +47,17 @@ export const lightTheme = {
       hover: '#FF9797',
       width: '89px',
     },
-    addItem: {
+    addNewItem: {
       background: '#F9FAFE',
       color: '#7E88C3',
       hover: '#DFE3FA',
-      width: '350px',
+      width: '504px',
+    },
+    cancel: {
+      background: '#F9FAFE',
+      color: '#7E88C3',
+      hover: '#DFE3FA',
+      width: '96px',
     },
   },
 };
@@ -89,11 +101,11 @@ export const darkTheme = {
       hover: '#FF9797',
       width: '89px',
     },
-    addItem: {
+    addNewItem: {
       background: '#F9FAFE',
       color: '#7E88C3',
       hover: '#DFE3FA',
-      width: '350px',
+      width: '504px',
     },
   },
 };

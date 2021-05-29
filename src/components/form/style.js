@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const FormContainer = styled.form`
   visibility: ${({ form }) => (form ? 'visible' : 'hidden')};
   background: #FFF;
-  border-radius: 10px;
+  border-radius: 25px;
   width: 719px;
-  padding: 56px 56px 56px 159px;
+  padding: 56px 56px 32px 159px;
   position: absolute;
   left: 0;
   top: 0;
@@ -40,4 +40,11 @@ export const Legend = styled.legend`
   line-height: 15px;
   letter-spacing: -0.25px;
   color: #7C5DFA;
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  padding-top: 39px;
+  gap: 8px;
+  justify-content: flex-end;
 `;

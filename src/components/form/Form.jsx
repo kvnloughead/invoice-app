@@ -2,13 +2,15 @@
 import React, { useState } from 'react';
 
 import AppContext from '../../contexts/AppContext';
-import { formConfig, dateInputConfig } from '../../utils/constants';
+import { formConfig, dateInputConfig, descriptionInputConfig } from '../../utils/constants';
 import Input from '../input/Input';
 import DateInput from '../dateinput/DateInput';
 import Dropdown from '../dropdown/Dropdown';
+import ItemsList from '../itemslist/ItemsList';
+import Button from '../button/Button';
 
 import {
-  FormContainer, Title, FieldSet, Legend,
+  FormContainer, Title, FieldSet, Legend, Buttons,
 } from './style';
 
 const Form = () => {
@@ -33,10 +35,6 @@ const Form = () => {
   return form && (
     <FormContainer form={form}>
       <Title>{`${thisForm.title} ${invoice.id}`}</Title>
-      <FieldSet>
-        <DateInput values={values} setValues={setValues} data={dateInputConfig} />
-        <Dropdown type="paymentTerms" />
-      </FieldSet>
       {thisForm.fieldsets.map((fieldset) => (
         <FieldSet>
           <Legend>{fieldset.legend}</Legend>
@@ -47,6 +45,16 @@ const Form = () => {
           ))}
         </FieldSet>
       ))}
+      <FieldSet>
+        <DateInput values={values} setValues={setValues} data={dateInputConfig} />
+        <Dropdown type="paymentTerms" />
+        <Input values={values} setValues={setValues} data={descriptionInputConfig} />
+      </FieldSet>
+      <ItemsList items={invoice.items} />
+      <Buttons>
+        <Button type="cancel" />
+        <Button type="saveChanges" />
+      </Buttons>
     </FormContainer>
   );
 };
