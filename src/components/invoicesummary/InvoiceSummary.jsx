@@ -18,7 +18,7 @@ const InvoiceSummary = ({ data }) => {
   return (
     <SummaryContainer>
       <Id>{data.id}</Id>
-      <Date>{data.createdAt}</Date>
+      <Date>{`Due ${data.createdAt}`}</Date>
       <Name>{data.clientName}</Name>
       <Cost>{data.total}</Cost>
       <PaidStatus status={data.status} />

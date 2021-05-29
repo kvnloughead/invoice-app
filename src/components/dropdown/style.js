@@ -24,3 +24,33 @@ export const Select = styled.select`
 export const Option = styled.option`
   
 `;
+
+export const FormDropdownContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 17px;
+`;
+
+export const FormLabel = styled.label`
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #7C5DFA;
+  margin-bottom: 10px;
+`;
+
+export const FormSelect = styled.select`
+  width: 240px;
+  height: 48px;
+  border-radius: 5px;
+  border: rgba(0, 0, 0, 0.05) 1px solid;
+  padding-left: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  box-sizing: border-box;
+`;
+
+export const FormOption = styled.option``;

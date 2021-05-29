@@ -22,7 +22,7 @@ const SummaryHeader = ({ numInvoices }) => (
         </Text>
       </div>
       <Row ai="center">
-        <Dropdown />
+        <Dropdown type="filterBy" />
         <Button type="newInvoice" mode="light" />
       </Row>
     </Container>

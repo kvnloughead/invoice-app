@@ -14,6 +14,7 @@ export const SidebarContainer = styled.aside`
   border-bottom-right-radius: 20px;
   ${flexCenter('column')}
   justify-content: space-between;
+  z-index: 3;
 `;
 
 export const Logo = styled.div`

@@ -7,6 +7,7 @@ export const lightTheme = {
   bgInvoice: '#FFFFFF',
   colorPrimary: '#0C0E16',
   colorSecondary: '#7E88C3',
+  colorFormLabel: '#7C5DFA',
   colorName: '#858BB2',
   nothingHere,
   button: {

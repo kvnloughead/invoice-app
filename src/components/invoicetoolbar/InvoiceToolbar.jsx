@@ -17,8 +17,6 @@ const InvoiceToolbar = () => {
   };
 
   const openEditForm = () => {
-    // eslint-disable-next-line no-debugger
-    debugger;
     setCurrentForm('edit');
   };
 
