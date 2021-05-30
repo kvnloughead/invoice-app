@@ -36,12 +36,15 @@ const Form = () => {
   // );
 
   const handleSubmit = (event) => {
+    debugger;
     event.preventDefault();
     if (currentForm === 'edit') {
       const newInvoice = { ...currentInvoice };
       Object.entries(values).forEach(([name, value]) => {
         const keys = name.split('.');
-        if (keys.length > 1) {
+        if (keys.length === 3) {
+          newInvoice[keys[0]][keys[1]][keys[2]] = value;
+        } else if (keys.length === 2) {
           newInvoice[keys[0]][keys[1]] = value;
         } else {
           newInvoice[keys[0]] = value;
@@ -74,7 +77,7 @@ const Form = () => {
         <Dropdown type="paymentTerms" />
         <Input values={values} setValues={setValues} data={descriptionInputConfig} />
       </FieldSet>
-      <ItemsList items={currentInvoice.items} />
+      <ItemsList items={currentInvoice.items} values={values} setValues={setValues} />
       <Buttons>
         <Button type="cancel" handleClick={handleCancel} />
         <Button type="saveChanges" handleClick={handleSubmit} />

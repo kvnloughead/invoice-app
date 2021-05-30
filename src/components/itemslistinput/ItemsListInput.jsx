@@ -1,21 +1,16 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-use-before-define
-import React, { useMemo } from 'react';
-
-import AppContext from '../../contexts/AppContext';
-import { accessObjectProperty } from '../../utils/helpers';
+import React from 'react';
 
 import {
-  InputContainer, Label, InputElement,
+  InputContainer, InputElement,
 } from './style';
 
-const Input = ({
-  data, setValues, values,
-}) => {
-  const { currentInvoice } = React.useContext(AppContext);
-  const defaultValue = useMemo(() => accessObjectProperty(currentInvoice, data.keys));
+const ItemsListInput = React.forwardRef(({
+  data, setValues, values, item,
+}, ref) => {
   const identifier = data.keys.join('.');
-
+  const defaultValue = item[data.keys[2]];
   const handleChange = (event) => {
     debugger;
     const { target } = event;
@@ -27,18 +22,16 @@ const Input = ({
 
   return (
     <InputContainer>
-      <Label htmlForm={data.label}>
-        {data.label}
-      </Label>
       <InputElement
         id={identifier}
         name={identifier}
         value={values[identifier] || defaultValue}
         onChange={handleChange}
         width={data.width}
+        ref={ref}
       />
     </InputContainer>
   );
-};
+});
 
-export default Input;
+export default ItemsListInput;

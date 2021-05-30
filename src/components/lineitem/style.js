@@ -1,27 +1,7 @@
 import styled from 'styled-components';
 
-import { bgStandard, secondaryTextStyles, flexCenter } from '../../utils/utility-styles';
+import { bgStandard, secondaryTextStyles } from '../../utils/utility-styles';
 import deleteIcon from '../../images/icon-delete.svg';
-
-export const Fieldset = styled.fieldset`
-  padding: 0;
-  border: none;
-  margin: 48px 0 0;
-  ${flexCenter('column')};
-`;
-
-export const Legend = styled.legend`
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 32px;
-  letter-spacing: -0.375px;
-  color: #777F98;
-  margin: 0 0 16px;
-`;
-
-export const Table = styled.table`
-  max-width: 504px;
-`;
 
 export const Row = styled.tr`
   display: grid;

@@ -21,5 +21,6 @@ module.exports = {
   ],
   rules: {
     'react/jsx-uses-react': 1,
+    'no-debugger': 0,
   },
 };

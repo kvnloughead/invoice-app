@@ -5,15 +5,15 @@ const formatDate = (date) => {
   return `${d} ${months[parseInt(m, 10)]} ${y}`;
 };
 
-const formatMoney = (cost, symbol) => {
-  const bills = Math.floor(cost);
-  const coins = `.${parseFloat(cost - Math.floor(cost)).toFixed(2).split('.')[1]}`;
-  return `${symbol}${Number(bills).toLocaleString()}${coins}`;
+const formatMoney = (cost, locale = 'en-us', currency = 'USD') => {
+  // Assumes that currency is a single character and that
+  // there is no space is between that character and the number
+  const money = cost.toLocaleString(locale, { style: 'currency', currency });
+  return `${money[0]} ${money.slice(1)}`;
 };
 
 const capitalizeFirstLetter = (word) => `${word[0].toUpperCase()}${word.slice(1)}`;
 
-// eslint-disable-next-line import/prefer-default-export
 export const processInvoices = (invoices) => {
   const processedInvoices = invoices.map((invoice) => ({
     ...invoice,
@@ -21,12 +21,12 @@ export const processInvoices = (invoices) => {
     createdAt: formatDate(invoice.createdAt),
     paymentDue: formatDate(invoice.paymentDue),
     clientName: invoice.clientName,
-    total: formatMoney(invoice.total, '£ '),
+    total: formatMoney(invoice.total),
     status: capitalizeFirstLetter(invoice.status),
     items: invoice.items.map((item) => ({
       ...item,
-      price: formatMoney(item.price, '£ '),
-      total: formatMoney(item.total, '£ '),
+      price: formatMoney(item.price),
+      total: formatMoney(item.total),
     })),
   }));
   return processedInvoices;
