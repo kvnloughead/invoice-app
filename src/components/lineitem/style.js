@@ -51,7 +51,7 @@ export const DeleteIcon = styled.button`
   width: 12.5px;
   height: 16px;
   align-self: center;
-  margin-left: 16px;
+  margin: 12px 0 0 16px;
 `;
 
 export const Total = styled.p`

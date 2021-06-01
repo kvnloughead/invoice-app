@@ -86,7 +86,9 @@ const LineItem = ({
           {total()}
         </Total>
       </TD>
-      <DeleteIcon col={5} onClick={handleDeleteLineItem} />
+      <TD>
+        <DeleteIcon col={5} onClick={handleDeleteLineItem} />
+      </TD>
     </Row>
   );
 };

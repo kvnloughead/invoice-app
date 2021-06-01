@@ -10,7 +10,9 @@ import {
 } from './style';
 
 const InvoiceToolbar = () => {
-  const { currentInvoice, setCurrentInvoice, setCurrentForm } = React.useContext(AppContext);
+  const {
+    currentInvoice, setCurrentInvoice, setCurrentForm, setInvoices, invoices,
+  } = React.useContext(AppContext);
 
   const goBack = () => {
     setCurrentInvoice(null);
@@ -18,6 +20,16 @@ const InvoiceToolbar = () => {
 
   const openEditForm = () => {
     setCurrentForm('edit');
+  };
+
+  const deleteInvoice = () => {
+    debugger;
+    setInvoices(invoices.filter((invoice) => invoice.id !== currentInvoice.id));
+    setCurrentInvoice(null);
+  };
+
+  const markAsPaid = () => {
+    setCurrentInvoice({ ...currentInvoice, status: 'Paid' });
   };
 
   return (
@@ -30,8 +42,8 @@ const InvoiceToolbar = () => {
         </FlexRow>
         <Buttons>
           <Button type="edit" handleClick={openEditForm} />
-          <Button type="delete" />
-          <Button type="markAsPaid" />
+          <Button type="delete" handleClick={deleteInvoice} />
+          <Button type="markAsPaid" handleClick={markAsPaid} />
         </Buttons>
       </Toolbar>
     </Container>
