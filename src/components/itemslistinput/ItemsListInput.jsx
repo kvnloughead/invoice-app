@@ -16,10 +16,13 @@ const ItemsListInput = React.forwardRef(({
     debugger;
     const { target } = event;
     const { name, value } = target;
-    if (name !== 'items.0.name' && value === '') {
-      setValues({ ...values, [name]: '0', 'items.0.total': 0 });
+    const [, index, propertyName] = name.split('.');
+    if (propertyName === 'name') {
+      setValues({ ...values, [name]: value });
+    } else if (propertyName !== 'name' && value === '') {
+      setValues({ ...values, [name]: '0', [`items.${index}.total`]: 0 });
     } else {
-      setValues({ ...values, [name]: value, 'items.0.total': total() });
+      setValues({ ...values, [name]: value, [`items.${index}.total`]: total() });
     }
     // setErrors({ ...errors, [name]: target.validationMessage });
     // setIsValid(target.closest('form').checkValidity());

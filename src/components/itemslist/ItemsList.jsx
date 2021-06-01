@@ -6,17 +6,23 @@ import { itemsListNames } from '../../utils/constants';
 import { formatItemsList } from '../../utils/helpers';
 import Button from '../button/Button';
 import LineItem from '../lineitem/LineItem';
-// import ItemsListInput from '../itemslistinput/ItemsListInput';
 
 import {
   Fieldset, Legend, Table, Row, TH,
-  // TD, Total, DeleteIcon,
 } from './style';
 
 // eslint-disable-next-line react/prop-types
 const ItemsList = (({ items, setValues, values }) => {
-  const formattedItems = formatItemsList(items);
-  // const [totals, setTotals] = React.useState(formattedItems.map((item) => item.total));
+  const [formattedItems, setFormattedItems] = React.useState(formatItemsList(items));
+  // const formattedItems = formatItemsList(items);
+
+  const handleAddNewItem = (evt) => {
+    evt.preventDefault();
+    const emptyItem = {
+      name: '', quantity: '0', price: '0', total: '0',
+    };
+    setFormattedItems([...formattedItems, emptyItem]);
+  };
 
   return (
     <Fieldset>
@@ -30,28 +36,12 @@ const ItemsList = (({ items, setValues, values }) => {
           </Row>
         </thead>
         <tbody>
-          {formattedItems.map((item) => (
-            <LineItem item={item} values={values} setValues={setValues} />
-            // <Row>
-            //   {Object.entries(item).slice(0, -1).map((entry, i) => (
-            //     <TD col={i + 1}>
-            //       <ItemsListInput
-            //         data={{ keys: ['items', '0', entry[0]] }}
-            //         item={item}
-            //         values={values}
-            //         setValues={setValues}
-            //       />
-            //     </TD>
-            //   ))}
-            //   <TD col={4}>
-            //     <Total />
-            //   </TD>
-            //   <DeleteIcon col={5} />
-            // </Row>
+          {formattedItems.map((item, i) => (
+            <LineItem index={i} item={item} values={values} setValues={setValues} />
           ))}
         </tbody>
       </Table>
-      <Button type="addNewItem" />
+      <Button type="addNewItem" handleClick={handleAddNewItem} />
     </Fieldset>
   );
 });

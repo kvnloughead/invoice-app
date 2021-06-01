@@ -9,7 +9,9 @@ import {
 } from './style';
 
 // eslint-disable-next-line react/prop-types
-const LineItem = ({ item, values, setValues }) => {
+const LineItem = ({
+  item, values, setValues, index,
+}) => {
   const quantityRef = React.useRef(null);
   const priceRef = React.useRef(null);
 
@@ -33,7 +35,7 @@ const LineItem = ({ item, values, setValues }) => {
     <Row>
       <TD col={1}>
         <ItemsListInput
-          data={{ keys: ['items', '0', 'name'] }}
+          data={{ keys: ['items', `${index}`, 'name'] }}
           item={item}
           values={values}
           setValues={setValues}
@@ -41,7 +43,7 @@ const LineItem = ({ item, values, setValues }) => {
       </TD>
       <TD col={2}>
         <ItemsListInput
-          data={{ keys: ['items', '0', 'quantity'] }}
+          data={{ keys: ['items', `${index}`, 'quantity'] }}
           item={item}
           values={values}
           setValues={setValues}
@@ -51,7 +53,7 @@ const LineItem = ({ item, values, setValues }) => {
       </TD>
       <TD col={3}>
         <ItemsListInput
-          data={{ keys: ['items', '0', 'price'] }}
+          data={{ keys: ['items', `${index}`, 'price'] }}
           item={item}
           values={values}
           setValues={setValues}
