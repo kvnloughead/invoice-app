@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 
@@ -9,9 +10,21 @@ import {
 
 // eslint-disable-next-line react/prop-types
 const LineItem = ({ item, values, setValues }) => {
-  debugger;
-  const quantityRef = React.useRef();
-  const priceRef = React.useRef();
+  const quantityRef = React.useRef(null);
+  const priceRef = React.useRef(null);
+
+  const total = () => {
+    if (quantityRef.current !== null && priceRef.current !== null) {
+      if (quantityRef.current.value === '' || priceRef.current.value === '') {
+        return '0';
+      }
+      const currentQuantity = parseInt(quantityRef.current.value, 10);
+      const currentPrice = parseFloat(priceRef.current.value.replace(',', ''));
+      return currentQuantity * currentPrice;
+    }
+    return item.total;
+  };
+
   return (
     <Row>
       <TD col={1}>
@@ -42,10 +55,7 @@ const LineItem = ({ item, values, setValues }) => {
       </TD>
       <TD col={4}>
         <Total>
-          {(quantityRef.current && priceRef.current)
-            ? parseFloat(quantityRef.current.value) * parseFloat(priceRef.current.value.replace(',', '').toLocaleString())
-            // eslint-disable-next-line react/prop-types
-            : item.total}
+          {total()}
         </Total>
       </TD>
       <DeleteIcon col={5} />
