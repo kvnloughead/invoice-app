@@ -22,5 +22,7 @@ module.exports = {
   rules: {
     'react/jsx-uses-react': 1,
     'no-debugger': 0,
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
   },
 };

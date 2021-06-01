@@ -107,6 +107,72 @@ export const formConfig = {
       },
     ],
   },
+  new: {
+    title: 'New Invoice',
+    fieldsets: [
+      {
+        legend: 'Bill From',
+        inputs: [
+          {
+            label: 'Street Address',
+            keys: ['senderAddress', 'street'],
+            width: 1,
+          },
+          {
+            label: 'City',
+            keys: ['senderAddress', 'city'],
+            width: 3,
+          },
+          {
+            label: 'Post Code',
+            keys: ['senderAddress', 'postCode'],
+            width: 3,
+          },
+          {
+            label: 'Country',
+            keys: ['senderAddress', 'country'],
+            width: 3,
+          },
+        ],
+
+      },
+      {
+        legend: 'Bill To',
+        inputs: [
+          {
+            label: 'Client\'s Name',
+            keys: ['clientName'],
+            width: 1,
+          },
+          {
+            label: 'Client\'s Email',
+            keys: ['clientEmail'],
+            width: 1,
+          },
+          {
+            label: 'Street Address',
+            keys: ['clientAddress', 'street'],
+            width: 1,
+          },
+          {
+            label: 'City',
+            keys: ['clientAddress', 'city'],
+            width: 3,
+          },
+          {
+            label: 'Post Code',
+            keys: ['clientAddress', 'postCode'],
+            width: 3,
+          },
+          {
+            label: 'Country',
+            keys: ['clientAddress', 'country'],
+            width: 3,
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export const dateInputConfig = {
@@ -119,4 +185,36 @@ export const descriptionInputConfig = {
   label: 'Project Description',
   keys: ['description'],
   width: 1,
+};
+
+export const blankInvoice = {
+  id: '',
+  createdAt: '',
+  paymentDue: '',
+  description: '',
+  paymentTerms: 1,
+  clientName: '',
+  clientEmail: '',
+  status: '',
+  senderAddress: {
+    street: '',
+    city: '',
+    postCode: '',
+    country: '',
+  },
+  clientAddress: {
+    street: '',
+    city: '',
+    postCode: '',
+    country: '',
+  },
+  items: [
+    {
+      name: '',
+      quantity: 0,
+      price: 0,
+      total: 0,
+    },
+  ],
+  total: 0,
 };

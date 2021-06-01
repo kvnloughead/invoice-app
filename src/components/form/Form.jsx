@@ -2,7 +2,11 @@
 import React, { useState } from 'react';
 
 import AppContext from '../../contexts/AppContext';
-import { formConfig, dateInputConfig, descriptionInputConfig } from '../../utils/constants';
+import {
+  formConfig,
+  dateInputConfig,
+  descriptionInputConfig,
+} from '../../utils/constants';
 
 import Input from '../input/Input';
 import DateInput from '../dateinput/DateInput';
@@ -19,7 +23,6 @@ const Form = () => {
     currentForm, currentInvoice, setCurrentInvoice, setCurrentForm,
   } = React.useContext(AppContext);
   const thisForm = formConfig[currentForm];
-
   const [values, setValues] = useState({});
   // const [, setErrors] = useState({});
   // const [, setIsValid] = useState(false);
@@ -37,25 +40,29 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (currentForm === 'edit') {
-      const newInvoice = { ...currentInvoice };
-      Object.entries(values).forEach(([name, value]) => {
-        const keys = name.split('.');
-        if (keys.length === 3) {
-          newInvoice[keys[0]][keys[1]][keys[2]] = value;
-        } else if (keys.length === 2) {
-          newInvoice[keys[0]][keys[1]] = value;
-        } else {
-          newInvoice[keys[0]] = value;
-        }
-      });
-      setCurrentInvoice(newInvoice);
-      setCurrentForm(null);
-    }
+    // eslint-disable-next-line no-constant-condition
+    const newInvoice = { ...currentInvoice };
+    debugger;
+    Object.entries(values).forEach(([name, value]) => {
+      const keys = name.split('.');
+      if (keys.length === 3) {
+        newInvoice[keys[0]][keys[1]][keys[2]] = value;
+      } else if (keys.length === 2) {
+        newInvoice[keys[0]][keys[1]] = value;
+      } else {
+        newInvoice[keys[0]] = value;
+      }
+      if (currentForm === 'new') {
+        newInvoice.status = 'Pending';
+      }
+    });
+    setCurrentInvoice(newInvoice);
+    setCurrentForm(null);
   };
 
   const handleCancel = () => {
     setCurrentForm(null);
+    setCurrentInvoice(null);
   };
 
   return currentForm && (

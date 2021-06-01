@@ -33,7 +33,7 @@ export const processInvoices = (invoices) => {
 };
 
 export const formatItemsList = (items) => {
-  const formattedItems = items.map((item) => ({
+  const formattedItems = items.map((item) => (item.quantity === 0 ? items : {
     ...item,
     price: item.price.split(' ')[1],
     total: item.total.split(' ')[1],
