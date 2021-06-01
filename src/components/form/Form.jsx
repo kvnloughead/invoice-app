@@ -36,7 +36,6 @@ const Form = () => {
   // );
 
   const handleSubmit = (event) => {
-    debugger;
     event.preventDefault();
     if (currentForm === 'edit') {
       const newInvoice = { ...currentInvoice };

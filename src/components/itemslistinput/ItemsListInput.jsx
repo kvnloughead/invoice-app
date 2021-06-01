@@ -7,18 +7,19 @@ import {
 } from './style';
 
 const ItemsListInput = React.forwardRef(({
-  data, setValues, values, type, item,
+  data, setValues, values, type, item, total,
 }, ref) => {
   const identifier = data.keys.join('.');
   const defaultValue = item[data.keys[2]];
 
   const handleChange = (event) => {
+    debugger;
     const { target } = event;
     const { name, value } = target;
     if (name !== 'items.0.name' && value === '') {
-      setValues({ ...values, [name]: '0' });
+      setValues({ ...values, [name]: '0', 'items.0.total': 0 });
     } else {
-      setValues({ ...values, [name]: value });
+      setValues({ ...values, [name]: value, 'items.0.total': total() });
     }
     // setErrors({ ...errors, [name]: target.validationMessage });
     // setIsValid(target.closest('form').checkValidity());

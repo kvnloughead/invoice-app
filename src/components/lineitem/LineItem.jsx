@@ -20,7 +20,11 @@ const LineItem = ({ item, values, setValues }) => {
       }
       const currentQuantity = parseInt(quantityRef.current.value, 10);
       const currentPrice = parseFloat(priceRef.current.value.replace(',', ''));
-      return currentQuantity * currentPrice;
+      return (currentQuantity * currentPrice)
+        .toLocaleString('en-us', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
     }
     return item.total;
   };
@@ -42,6 +46,7 @@ const LineItem = ({ item, values, setValues }) => {
           values={values}
           setValues={setValues}
           ref={quantityRef}
+          total={total}
         />
       </TD>
       <TD col={3}>
@@ -51,6 +56,7 @@ const LineItem = ({ item, values, setValues }) => {
           values={values}
           setValues={setValues}
           ref={priceRef}
+          total={total}
         />
       </TD>
       <TD col={4}>
