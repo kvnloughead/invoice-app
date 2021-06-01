@@ -37,7 +37,14 @@ const ItemsList = (({ items, setValues, values }) => {
         </thead>
         <tbody>
           {formattedItems.map((item, i) => (
-            <LineItem index={i} item={item} values={values} setValues={setValues} />
+            <LineItem
+              index={i}
+              item={item}
+              values={values}
+              setValues={setValues}
+              formattedItems={formattedItems}
+              setFormattedItems={setFormattedItems}
+            />
           ))}
         </tbody>
       </Table>

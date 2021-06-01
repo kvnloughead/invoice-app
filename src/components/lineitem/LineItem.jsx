@@ -10,10 +10,11 @@ import {
 
 // eslint-disable-next-line react/prop-types
 const LineItem = ({
-  item, values, setValues, index,
+  item, values, setValues, index, formattedItems, setFormattedItems,
 }) => {
   const quantityRef = React.useRef(null);
   const priceRef = React.useRef(null);
+  const nameRef = React.useRef(null);
 
   const total = () => {
     if (quantityRef.current !== null && priceRef.current !== null) {
@@ -31,6 +32,24 @@ const LineItem = ({
     return item.total;
   };
 
+  const handleDeleteLineItem = (evt) => {
+    evt.preventDefault();
+    debugger;
+    if (formattedItems.length === 1) {
+      quantityRef.current.value = 0;
+      priceRef.current.value = 0;
+      nameRef.current.value = '';
+      setValues({
+        ...values,
+        [`items.${index}.price`]: '0',
+        [`items.${index}.quantity`]: '0',
+        [`items.${index}.name`]: '',
+      });
+    } else {
+      setFormattedItems([...formattedItems.slice(0, index), ...formattedItems.slice(index + 1)]);
+    }
+  };
+
   return (
     <Row>
       <TD col={1}>
@@ -39,6 +58,7 @@ const LineItem = ({
           item={item}
           values={values}
           setValues={setValues}
+          ref={nameRef}
         />
       </TD>
       <TD col={2}>
@@ -66,7 +86,7 @@ const LineItem = ({
           {total()}
         </Total>
       </TD>
-      <DeleteIcon col={5} />
+      <DeleteIcon col={5} onClick={handleDeleteLineItem} />
     </Row>
   );
 };
