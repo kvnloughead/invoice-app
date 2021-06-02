@@ -19,7 +19,7 @@ const Dropdown = ({ type }) => {
         <FormLabel>{data.title}</FormLabel>
         <FormSelect id={data.id}>
           {data.options.map((option) => (
-            <FormOption key={option} value={option}>{option}</FormOption>
+            <FormOption key={`${option}-${Math.random()}`} value={option}>{option}</FormOption>
           ))}
         </FormSelect>
       </FormDropdownContainer>

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // eslint-disable-next-line no-use-before-define
 import React, { useState } from 'react';
 
@@ -69,12 +70,10 @@ const Form = () => {
     <FormContainer form={currentForm}>
       <Title>{`${thisForm.title} ${currentInvoice.id}`}</Title>
       {thisForm.fieldsets.map((fieldset) => (
-        <FieldSet>
+        <FieldSet key={fieldset.id}>
           <Legend>{fieldset.legend}</Legend>
           {fieldset.inputs.map((input) => (
-            <>
-              <Input values={values} setValues={setValues} data={input} />
-            </>
+            <Input key={`${input.id}`} values={values} setValues={setValues} data={input} />
           ))}
         </FieldSet>
       ))}

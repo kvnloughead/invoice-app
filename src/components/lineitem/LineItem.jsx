@@ -33,7 +33,6 @@ const LineItem = ({
 
   const handleDeleteLineItem = (evt) => {
     evt.preventDefault();
-    debugger;
     if (formattedItems.length === 1) {
       quantityRef.current.value = 0;
       priceRef.current.value = 0;

@@ -1,6 +1,7 @@
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
-import PropTypes, { string } from 'prop-types';
+import PropTypes, {
+  string, number, oneOfType,
+} from 'prop-types';
 
 import { itemsListNames } from '../../utils/constants';
 import { formatItemsList } from '../../utils/helpers';
@@ -14,7 +15,6 @@ import {
 // eslint-disable-next-line react/prop-types
 const ItemsList = (({ items, setValues, values }) => {
   const [formattedItems, setFormattedItems] = React.useState(formatItemsList(items));
-  // const formattedItems = formatItemsList(items);
 
   const handleAddNewItem = (evt) => {
     evt.preventDefault();
@@ -38,6 +38,7 @@ const ItemsList = (({ items, setValues, values }) => {
         <tbody>
           {formattedItems.map((item, i) => (
             <LineItem
+              key={`${item.name}-${item.total}`}
               index={i}
               item={item}
               values={values}
@@ -56,10 +57,13 @@ const ItemsList = (({ items, setValues, values }) => {
 ItemsList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     name: string.isRequired,
-    quantity: string.isRequired,
-    price: string.isRequired,
-    total: string.isRequired,
+    quantity: oneOfType([string, number]).isRequired,
+    price: oneOfType([string, number]).isRequired,
+    total: oneOfType([string, number]).isRequired,
   })).isRequired,
+};
+
+ItemsList.defaultProps = {
 };
 
 export default ItemsList;
