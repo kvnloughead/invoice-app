@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes, { string } from 'prop-types';
 
@@ -9,7 +8,7 @@ const Address = (({
 }) => (
   <AddressContainer col={col} row={row} ta={ta}>
     {Object.entries(data).map((entry) => (
-      <AddressItem>{entry[1]}</AddressItem>
+      <AddressItem key={`${entry[0]}-${entry[1]}-${Math.random()}`}>{entry[1]}</AddressItem>
     ))}
   </AddressContainer>
 )
@@ -18,13 +17,19 @@ const Address = (({
 export default Address;
 
 Address.propTypes = {
-  ta: string.isRequired,
-  col: string.isRequired,
-  row: string.isRequired,
+  ta: string, // text-align
+  col: string,
+  row: string,
   data: PropTypes.shape({
     street: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
     postCode: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+Address.defaultProps = {
+  ta: 'left',
+  col: '',
+  row: '',
 };

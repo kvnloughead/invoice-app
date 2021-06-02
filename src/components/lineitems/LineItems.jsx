@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
-import PropTypes, { string } from 'prop-types';
+import PropTypes, { string, number, oneOfType } from 'prop-types';
 
 import { lineItemNames } from '../../utils/constants';
 import {
@@ -37,11 +37,11 @@ const LineItems = (({ items, total }) => (
 LineItems.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     name: string.isRequired,
-    quantity: string.isRequired,
-    price: string.isRequired,
-    total: string.isRequired,
+    quantity: oneOfType([string, number]).isRequired,
+    price: oneOfType([string, number]).isRequired,
+    total: oneOfType([string, number]).isRequired,
   })).isRequired,
-  total: string.isRequired,
+  total: oneOfType([string, number]).isRequired,
 };
 
 export default LineItems;
