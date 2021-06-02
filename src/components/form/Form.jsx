@@ -41,7 +41,6 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // eslint-disable-next-line no-constant-condition
     const newInvoice = { ...currentInvoice };
     debugger;
     Object.entries(values).forEach(([name, value]) => {

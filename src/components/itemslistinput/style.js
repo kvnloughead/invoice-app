@@ -6,6 +6,8 @@ export const InputContainer = styled.div`
 `;
 
 export const InputElement = styled.input`
+  color: ${({ theme }) => theme.colorInput};
+  background: ${({ theme }) => theme.bgInput};
   height: 48px;
   border-radius: 5px;
   border: rgba(0, 0, 0, 0.5) 1px solid;

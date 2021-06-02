@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,7 +6,6 @@ import {
   FormLabel, FormSelect, FormOption,
   Label, Select, Option,
 } from './style';
-// import data from '../../config/filter-by';
 import { dropdownConfig } from '../../utils/constants';
 
 const Dropdown = ({ type }) => {

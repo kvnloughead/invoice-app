@@ -55,10 +55,10 @@ export const DeleteIcon = styled.button`
 `;
 
 export const Total = styled.p`
+  color: ${({ theme }) => theme.colorTotal};
   ${secondaryTextStyles}
   margin-top: 16px;
   border: none;
   padding-left: 0;
-  color: #888EB0;
   font-weight: 700;
 `;

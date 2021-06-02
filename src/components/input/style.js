@@ -10,7 +10,6 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 24px; 
-
   &:first-of-type {
     margin-top: 17px;
   }
@@ -21,12 +20,14 @@ export const Label = styled.label`
   font-weight: 500;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #7C5DFA;
+  color: ${({ theme }) => theme.colorInputLabel};
   margin-bottom: 10px;
 `;
 
 export const InputElement = styled.input`
   width: ${({ width }) => widths[width]};
+  color: ${({ theme }) => theme.colorInput};
+  background: ${({ theme }) => theme.bgInput};
   height: 48px;
   border-radius: 5px;
   border: rgba(0, 0, 0, 0.5) 1px solid;

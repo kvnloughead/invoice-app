@@ -18,16 +18,18 @@ export const InputContainer = styled.div`
 `;
 
 export const Label = styled.label`
+  color: ${({ theme }) => theme.colorInputLabel};
   font-size: 12px;
   font-weight: 500;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #7C5DFA;
   margin-bottom: 10px;
 `;
 
 export const InputElement = styled.input`
   width: ${({ width }) => widths[width]};
+  color: ${({ theme }) => theme.colorInput};
+  background: ${({ theme }) => theme.bgInput};
   height: 48px;
   border-radius: 5px;
   border: rgba(0, 0, 0, 0.05) 1px solid;

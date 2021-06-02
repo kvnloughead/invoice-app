@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.form`
   visibility: ${({ form }) => (form ? 'visible' : 'hidden')};
-  background: #FFF;
+  background: ${({ theme }) => theme.bgForm};
   border-radius: 25px;
   width: 719px;
   padding: 56px 56px 32px 159px;

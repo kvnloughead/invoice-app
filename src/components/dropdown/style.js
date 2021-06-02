@@ -36,11 +36,13 @@ export const FormLabel = styled.label`
   font-weight: 500;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #7C5DFA;
+  color: ${({ theme }) => theme.colorInputLabel};
   margin-bottom: 10px;
 `;
 
 export const FormSelect = styled.select`
+  background: ${({ theme }) => theme.bgInput};
+  color: ${({ theme }) => theme.colorInput};
   width: 240px;
   height: 48px;
   border-radius: 5px;
@@ -53,4 +55,6 @@ export const FormSelect = styled.select`
   box-sizing: border-box;
 `;
 
-export const FormOption = styled.option``;
+export const FormOption = styled.option`
+  color: ${({ theme }) => theme.colorInput};
+`;

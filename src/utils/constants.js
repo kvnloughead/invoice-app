@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export const lineItemNames = {
   name: 'Item Name',
   quantity: 'QTY.',
@@ -46,62 +48,74 @@ export const formConfig = {
     fieldsets: [
       {
         legend: 'Bill From',
+        id: uuidv4(),
         inputs: [
           {
             label: 'Street Address',
             keys: ['senderAddress', 'street'],
             width: 1,
+            id: uuidv4(),
           },
           {
             label: 'City',
             keys: ['senderAddress', 'city'],
             width: 3,
+            id: uuidv4(),
           },
           {
             label: 'Post Code',
             keys: ['senderAddress', 'postCode'],
             width: 3,
+            id: uuidv4(),
           },
           {
             label: 'Country',
             keys: ['senderAddress', 'country'],
             width: 3,
+            id: uuidv4(),
           },
         ],
 
       },
       {
         legend: 'Bill To',
+        id: uuidv4(),
         inputs: [
           {
             label: 'Client\'s Name',
             keys: ['clientName'],
             width: 1,
+            id: uuidv4(),
           },
           {
             label: 'Client\'s Email',
             keys: ['clientEmail'],
             width: 1,
+            id: uuidv4(),
           },
           {
             label: 'Street Address',
             keys: ['clientAddress', 'street'],
             width: 1,
+            id: uuidv4(),
           },
           {
             label: 'City',
             keys: ['clientAddress', 'city'],
             width: 3,
+            id: uuidv4(),
           },
           {
             label: 'Post Code',
             keys: ['clientAddress', 'postCode'],
             width: 3,
+            id: uuidv4(),
           },
           {
             label: 'Country',
             keys: ['clientAddress', 'country'],
             width: 3,
+            id: uuidv4(),
           },
         ],
       },
@@ -109,6 +123,7 @@ export const formConfig = {
   },
   new: {
     title: 'New Invoice',
+    id: uuidv4(),
     fieldsets: [
       {
         legend: 'Bill From',
@@ -117,57 +132,68 @@ export const formConfig = {
             label: 'Street Address',
             keys: ['senderAddress', 'street'],
             width: 1,
+            id: uuidv4(),
           },
           {
             label: 'City',
             keys: ['senderAddress', 'city'],
             width: 3,
+            id: uuidv4(),
           },
           {
             label: 'Post Code',
             keys: ['senderAddress', 'postCode'],
             width: 3,
+            id: uuidv4(),
           },
           {
             label: 'Country',
             keys: ['senderAddress', 'country'],
             width: 3,
+            id: uuidv4(),
           },
         ],
 
       },
       {
         legend: 'Bill To',
+        id: uuidv4(),
         inputs: [
           {
             label: 'Client\'s Name',
             keys: ['clientName'],
             width: 1,
+            id: uuidv4(),
           },
           {
             label: 'Client\'s Email',
             keys: ['clientEmail'],
             width: 1,
+            id: uuidv4(),
           },
           {
             label: 'Street Address',
             keys: ['clientAddress', 'street'],
             width: 1,
+            id: uuidv4(),
           },
           {
             label: 'City',
             keys: ['clientAddress', 'city'],
             width: 3,
+            id: uuidv4(),
           },
           {
             label: 'Post Code',
             keys: ['clientAddress', 'postCode'],
             width: 3,
+            id: uuidv4(),
           },
           {
             label: 'Country',
             keys: ['clientAddress', 'country'],
             width: 3,
+            id: uuidv4(),
           },
         ],
       },
