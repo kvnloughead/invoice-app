@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-// eslint-disable-next-line no-use-before-define
 import React, { useMemo } from 'react';
 
-import AppContext from '../../contexts/AppContext';
-import { accessObjectProperty } from '../../utils/helpers';
+import AppContext from '../../../contexts/AppContext';
+import { accessObjectProperty } from '../../../utils/helpers';
 
 import {
   InputContainer, Label, InputElement,

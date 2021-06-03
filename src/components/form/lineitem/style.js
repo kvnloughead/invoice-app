@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-import { bgStandard, secondaryTextStyles } from '../../utils/utility-styles';
-import deleteIcon from '../../images/icon-delete.svg';
+import { bgStandard, secondaryTextStyles } from '../../../utils/utility-styles';
+import deleteIcon from '../../../images/icon-delete.svg';
 
 export const Row = styled.tr`
   display: grid;
   grid-template-columns: 214px 46px 100px 56px 1fr;
   grid-gap: 16px;
   margin-bottom: 18px;
-
   &:first-of-type {
     margin-bottom: 16px;
   }

@@ -1,9 +1,8 @@
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AppContext from '../../contexts/AppContext';
-import PaidStatus from '../paidstatus/PaidStatus';
+import AppContext from '../../../contexts/AppContext';
+import PaidStatus from '../../common/paidstatus/PaidStatus';
 
 import {
   SummaryContainer, Id, Date, Name, Cost, ViewInvoiceButton,

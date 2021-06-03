@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
 import { func } from 'prop-types';
 import styled from 'styled-components';

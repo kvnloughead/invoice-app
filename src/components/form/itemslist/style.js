@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { secondaryTextStyles, flexCenter } from '../../utils/utility-styles';
+import { secondaryTextStyles, flexCenter } from '../../../utils/utility-styles';
 
 export const Fieldset = styled.fieldset`
   padding: 0;

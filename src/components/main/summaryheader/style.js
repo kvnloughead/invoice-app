@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { flexRowStyles } from '../../utils/utility-styles';
+import { flexRowStyles } from '../../../utils/utility-styles';
 
 export const Container = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { secondaryTextStyles, flexColumnStyles, flexRowStyles } from '../../utils/utility-styles';
-import leftArrow from '../../images/icon-arrow-left.svg';
+import { secondaryTextStyles, flexColumnStyles, flexRowStyles } from '../../../utils/utility-styles';
+import leftArrow from '../../../images/icon-arrow-left.svg';
 
 export const Container = styled.div`
   width: 730px;

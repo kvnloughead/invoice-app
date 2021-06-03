@@ -8,8 +8,8 @@ import Main from '../main/Main';
 import Form from '../form/Form';
 
 import Toggler from '../toggler/Toggler';
-import useDarkMode from '../hooks/useDarkMode';
-import GlobalStyles from '../globalstyles/GlobalStyles';
+import useDarkMode from '../common/hooks/useDarkMode';
+import GlobalStyles from '../common/globalstyles/GlobalStyles';
 import { darkTheme, lightTheme } from '../themes/Themes';
 import { processInvoices } from '../../utils/helpers';
 import rawInvoices from '../../utils/data.json';

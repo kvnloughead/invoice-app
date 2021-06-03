@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import selectArrow from '../../images/icons/select-arrow.svg';
+import selectArrow from '../../../images/icons/select-arrow.svg';
 
 export const Label = styled.label`
   font-weight: bold;

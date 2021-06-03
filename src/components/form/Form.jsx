@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-// eslint-disable-next-line no-use-before-define
+
 import React, { useState } from 'react';
 
 import AppContext from '../../contexts/AppContext';
@@ -9,11 +9,11 @@ import {
   descriptionInputConfig,
 } from '../../utils/constants';
 
-import Input from '../input/Input';
-import DateInput from '../dateinput/DateInput';
-import Dropdown from '../dropdown/Dropdown';
-import ItemsList from '../itemslist/ItemsList';
-import Button from '../button/Button';
+import Input from './input/Input';
+import DateInput from './dateinput/DateInput';
+import Dropdown from '../common/dropdown/Dropdown';
+import ItemsList from './itemslist/ItemsList';
+import Button from '../common/button/Button';
 
 import {
   FormContainer, Title, FieldSet, Legend, Buttons,

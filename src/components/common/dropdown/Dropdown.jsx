@@ -6,7 +6,7 @@ import {
   FormLabel, FormSelect, FormOption,
   Label, Select, Option,
 } from './style';
-import { dropdownConfig } from '../../utils/constants';
+import { dropdownConfig } from '../../../utils/constants';
 
 const Dropdown = ({ type }) => {
   const data = dropdownConfig[type];

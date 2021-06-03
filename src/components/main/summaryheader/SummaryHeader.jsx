@@ -1,11 +1,10 @@
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AppContext from '../../contexts/AppContext';
-import Dropdown from '../dropdown/Dropdown';
-import Button from '../button/Button';
-import { blankInvoice } from '../../utils/constants';
+import AppContext from '../../../contexts/AppContext';
+import Dropdown from '../../common/dropdown/Dropdown';
+import Button from '../../common/button/Button';
+import { blankInvoice } from '../../../utils/constants';
 
 import {
   Container, Title, Text, Row,

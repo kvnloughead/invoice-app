@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import AppContext from '../../contexts/AppContext';
-import { accessObjectProperty } from '../../utils/helpers';
-import calendarIcon from '../../images/icon-calendar.svg';
+import AppContext from '../../../contexts/AppContext';
+import { accessObjectProperty } from '../../../utils/helpers';
+import calendarIcon from '../../../images/icon-calendar.svg';
 
 import {
   InputContainer, Label, InputElement, CalendarIcon,

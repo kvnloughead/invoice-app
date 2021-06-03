@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AppContext from '../../contexts/AppContext';
-import PaidStatus from '../paidstatus/PaidStatus';
-import Button from '../button/Button';
+import AppContext from '../../../contexts/AppContext';
+import PaidStatus from '../../common/paidstatus/PaidStatus';
+import Button from '../../common/button/Button';
 
 import {
   Container, BackButton, Toolbar, Label, FlexRow, Buttons,

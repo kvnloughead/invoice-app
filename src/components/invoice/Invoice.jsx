@@ -1,9 +1,8 @@
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
 
 import AppContext from '../../contexts/AppContext';
-import Address from '../address/Address';
-import LineItems from '../lineitems/LineItems';
+import Address from './address/Address';
+import LineItems from './lineitems/LineItems';
 
 import {
   InvoiceContainer, TopLeft, Id, Description, Middle,

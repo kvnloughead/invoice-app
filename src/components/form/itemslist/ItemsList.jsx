@@ -3,9 +3,9 @@ import PropTypes, {
   string, number, oneOfType,
 } from 'prop-types';
 
-import { itemsListNames } from '../../utils/constants';
-import { formatItemsList } from '../../utils/helpers';
-import Button from '../button/Button';
+import { itemsListNames } from '../../../utils/constants';
+import { formatItemsList } from '../../../utils/helpers';
+import Button from '../../common/button/Button';
 import LineItem from '../lineitem/LineItem';
 
 import {

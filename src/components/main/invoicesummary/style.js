@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import rightArrowIcon from '../../images/icon-arrow-right.svg';
+import rightArrowIcon from '../../../images/icon-arrow-right.svg';
 
 const fontStyles = css`
   font-size: 12px;
