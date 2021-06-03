@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import AppContext from '../../contexts/AppContext';
 import {
@@ -39,8 +39,16 @@ const Form = () => {
   //   [setValues, setErrors, setIsValid],
   // );
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const closeForm = (evt) => {
+    debugger;
+    if (evt.target.id.split('-')[0] === 'cancel' || evt.key === 'Escape') {
+      setCurrentForm(null);
+      // resetForm();
+    }
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
     const newInvoice = { ...currentInvoice };
     debugger;
     Object.entries(values).forEach(([name, value]) => {
@@ -60,10 +68,12 @@ const Form = () => {
     setCurrentForm(null);
   };
 
-  const handleCancel = () => {
-    setCurrentForm(null);
-    setCurrentInvoice(null);
-  };
+  useEffect(() => {
+    document.addEventListener('keydown', closeForm);
+    return () => {
+      document.removeEventListener('keydown', closeForm);
+    };
+  }, [currentForm]);
 
   return currentForm && (
     <FormContainer form={currentForm}>
@@ -83,7 +93,7 @@ const Form = () => {
       </FieldSet>
       <ItemsList items={currentInvoice.items} values={values} setValues={setValues} />
       <Buttons>
-        <Button type="cancel" handleClick={handleCancel} />
+        <Button id="cancel" type="cancel" handleClick={closeForm} />
         <Button type="saveChanges" handleClick={handleSubmit} />
       </Buttons>
     </FormContainer>

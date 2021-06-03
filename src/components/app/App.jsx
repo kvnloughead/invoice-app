@@ -35,7 +35,7 @@ function App() {
             <Toggler theme={theme} toggleTheme={themeToggler} />
           </Sidebar>
           <Main />
-          <Form />
+          {currentForm && <Form />}
         </div>
       </AppContext.Provider>
     </ThemeProvider>
