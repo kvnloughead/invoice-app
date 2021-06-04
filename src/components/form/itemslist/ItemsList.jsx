@@ -4,7 +4,7 @@ import PropTypes, {
 } from 'prop-types';
 
 import { itemsListNames } from '../../../utils/constants';
-import { formatItemsList } from '../../../utils/helpers';
+// import { formatItemsList } from '../../../utils/helpers';
 import Button from '../../common/button/Button';
 import LineItem from '../lineitem/LineItem';
 import FormContext from '../../../contexts/FormContext';
@@ -16,7 +16,7 @@ import {
 // eslint-disable-next-line react/prop-types
 const ItemsList = (({ items }) => {
   const { values, setValues } = React.useContext(FormContext);
-  const [formattedItems, setFormattedItems] = React.useState(formatItemsList(items));
+  const [formattedItems, setFormattedItems] = React.useState(items);
 
   const handleAddNewItem = (evt) => {
     evt.preventDefault();

@@ -65,10 +65,11 @@ const Form = () => {
       } else {
         newInvoice[keys[0]] = value;
       }
-      if (currentForm === 'new') {
-        newInvoice.status = 'Pending';
-      }
+      newInvoice.total = parseFloat(values.items.reduce((a, b) => a + b.total, 0));
     });
+    if (currentForm === 'new') {
+      newInvoice.status = 'Pending';
+    }
     setCurrentInvoice(newInvoice);
     setCurrentForm(null);
   };
