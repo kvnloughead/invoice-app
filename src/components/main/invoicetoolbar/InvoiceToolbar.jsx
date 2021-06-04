@@ -22,7 +22,6 @@ const InvoiceToolbar = () => {
   };
 
   const deleteInvoice = () => {
-    debugger;
     setInvoices(invoices.filter((invoice) => invoice.id !== currentInvoice.id));
     setCurrentInvoice(null);
   };

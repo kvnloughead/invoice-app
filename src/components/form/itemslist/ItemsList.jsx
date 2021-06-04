@@ -7,13 +7,15 @@ import { itemsListNames } from '../../../utils/constants';
 import { formatItemsList } from '../../../utils/helpers';
 import Button from '../../common/button/Button';
 import LineItem from '../lineitem/LineItem';
+import FormContext from '../../../contexts/FormContext';
 
 import {
   Fieldset, Legend, Table, Row, TH,
 } from './style';
 
 // eslint-disable-next-line react/prop-types
-const ItemsList = (({ items, setValues, values }) => {
+const ItemsList = (({ items }) => {
+  const { values, setValues } = React.useContext(FormContext);
   const [formattedItems, setFormattedItems] = React.useState(formatItemsList(items));
 
   const handleAddNewItem = (evt) => {
@@ -21,6 +23,7 @@ const ItemsList = (({ items, setValues, values }) => {
     const emptyItem = {
       name: '', quantity: '0', price: '0', total: '0',
     };
+    setValues({ ...values, items: [...items, emptyItem] });
     setFormattedItems([...formattedItems, emptyItem]);
   };
 
@@ -36,17 +39,18 @@ const ItemsList = (({ items, setValues, values }) => {
           </Row>
         </thead>
         <tbody>
-          {formattedItems.map((item, i) => (
-            <LineItem
-              key={`${item.name}-${item.total}`}
-              index={i}
-              item={item}
-              values={values}
-              setValues={setValues}
-              formattedItems={formattedItems}
-              setFormattedItems={setFormattedItems}
-            />
-          ))}
+          {formattedItems.map((item, i) => {
+            debugger;
+            return (
+              <LineItem
+                key={`${item.name}-${item.total}`}
+                index={i}
+                item={item}
+                formattedItems={formattedItems}
+                setFormattedItems={setFormattedItems}
+              />
+            );
+          })}
         </tbody>
       </Table>
       <Button type="addNewItem" handleClick={handleAddNewItem} />

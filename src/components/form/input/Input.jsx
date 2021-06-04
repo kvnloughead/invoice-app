@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
-import React, { useMemo } from 'react';
+import React, { useMemo, useContext } from 'react';
 
 import AppContext from '../../../contexts/AppContext';
+import FormContext from '../../../contexts/FormContext';
 import { accessObjectProperty } from '../../../utils/helpers';
 
 import {
   InputContainer, Label, InputElement,
 } from './style';
 
-const Input = ({
-  data, setValues, values,
-}) => {
-  const { currentInvoice } = React.useContext(AppContext);
+const Input = ({ data }) => {
+  const { currentInvoice } = useContext(AppContext);
+  const { values, setValues } = useContext(FormContext);
   const defaultValue = useMemo(() => accessObjectProperty(currentInvoice, data.keys));
   const identifier = data.keys.join('.');
 

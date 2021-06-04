@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
+
+import FormContext from '../../../contexts/FormContext';
 
 import {
   InputContainer, InputElement,
 } from './style';
 
 const ItemsListInput = React.forwardRef(({
-  data, setValues, values, type, item, total,
+  data, type, item, total,
 }, ref) => {
+  const { values, setValues } = useContext(FormContext);
   const identifier = data.keys.join('.');
   const defaultValue = item[data.keys[2]];
 

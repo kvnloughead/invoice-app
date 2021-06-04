@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 
 import AppContext from '../../contexts/AppContext';
+import FormContext from '../../contexts/FormContext';
 import {
   formConfig,
   dateInputConfig,
@@ -24,9 +25,13 @@ const Form = () => {
     currentForm, currentInvoice, setCurrentInvoice, setCurrentForm,
   } = React.useContext(AppContext);
   const thisForm = formConfig[currentForm];
-  const [values, setValues] = useState({});
-  // const [, setErrors] = useState({});
-  // const [, setIsValid] = useState(false);
+
+  const [values, setValues] = useState({ items: currentInvoice.items });
+  const [errors, setErrors] = useState({});
+  const [isValid, setIsValid] = useState(false);
+  const state = {
+    values, setValues, errors, setErrors, isValid, setIsValid,
+  };
 
   // const resetForm = useCallback(
   //   (newValues = { email: '', password: '', username: '' },
@@ -48,13 +53,13 @@ const Form = () => {
   };
 
   const handleSubmit = (evt) => {
+    debugger;
     evt.preventDefault();
     const newInvoice = { ...currentInvoice };
-    debugger;
     Object.entries(values).forEach(([name, value]) => {
       const keys = name.split('.');
       if (keys.length === 3) {
-        newInvoice[keys[0]][keys[1]][keys[2]] = value;
+        newInvoice[keys[0]][parseInt(keys[1], 10)][keys[2]] = value;
       } else if (keys.length === 2) {
         newInvoice[keys[0]][keys[1]] = value;
       } else {
@@ -76,27 +81,29 @@ const Form = () => {
   }, [currentForm]);
 
   return currentForm && (
-    <FormContainer form={currentForm}>
-      <Title>{`${thisForm.title} ${currentInvoice.id}`}</Title>
-      {thisForm.fieldsets.map((fieldset) => (
-        <FieldSet key={fieldset.id}>
-          <Legend>{fieldset.legend}</Legend>
-          {fieldset.inputs.map((input) => (
-            <Input key={`${input.id}`} values={values} setValues={setValues} data={input} />
-          ))}
+    <FormContext.Provider value={state}>
+      <FormContainer form={currentForm}>
+        <Title>{`${thisForm.title} ${currentInvoice.id}`}</Title>
+        {thisForm.fieldsets.map((fieldset) => (
+          <FieldSet key={fieldset.id}>
+            <Legend>{fieldset.legend}</Legend>
+            {fieldset.inputs.map((input) => (
+              <Input key={`${input.id}`} data={input} />
+            ))}
+          </FieldSet>
+        ))}
+        <FieldSet>
+          <DateInput data={dateInputConfig} />
+          <Dropdown type="paymentTerms" />
+          <Input data={descriptionInputConfig} />
         </FieldSet>
-      ))}
-      <FieldSet>
-        <DateInput values={values} setValues={setValues} data={dateInputConfig} />
-        <Dropdown type="paymentTerms" />
-        <Input values={values} setValues={setValues} data={descriptionInputConfig} />
-      </FieldSet>
-      <ItemsList items={currentInvoice.items} values={values} setValues={setValues} />
-      <Buttons>
-        <Button id="cancel" type="cancel" handleClick={closeForm} />
-        <Button type="saveChanges" handleClick={handleSubmit} />
-      </Buttons>
-    </FormContainer>
+        <ItemsList items={currentInvoice.items} />
+        <Buttons>
+          <Button id="cancel" type="cancel" handleClick={closeForm} />
+          <Button type="saveChanges" handleClick={handleSubmit} />
+        </Buttons>
+      </FormContainer>
+    </FormContext.Provider>
   );
 };
 

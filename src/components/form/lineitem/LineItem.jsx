@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 
 import ItemsListInput from '../itemslistinput/ItemsListInput';
+import FormContext from '../../../contexts/FormContext';
 
 import {
   Row, TD, Total, DeleteIcon,
@@ -9,8 +10,9 @@ import {
 
 // eslint-disable-next-line react/prop-types
 const LineItem = ({
-  item, values, setValues, index, formattedItems, setFormattedItems,
+  item, index, formattedItems, setFormattedItems,
 }) => {
+  const { values, setValues } = useContext(FormContext);
   const quantityRef = React.useRef(null);
   const priceRef = React.useRef(null);
   const nameRef = React.useRef(null);

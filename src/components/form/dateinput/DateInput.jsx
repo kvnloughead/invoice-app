@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 
 import AppContext from '../../../contexts/AppContext';
+import FormContext from '../../../contexts/FormContext';
 import { accessObjectProperty } from '../../../utils/helpers';
 import calendarIcon from '../../../images/icon-calendar.svg';
 
@@ -9,10 +10,9 @@ import {
   InputContainer, Label, InputElement, CalendarIcon,
 } from './style';
 
-const DateInput = ({
-  data, setValues, values,
-}) => {
-  const { currentInvoice } = React.useContext(AppContext);
+const DateInput = ({ data }) => {
+  const { currentInvoice } = useContext(AppContext);
+  const { values, setValues } = useContext(FormContext);
   const inputValue = accessObjectProperty(currentInvoice, data.keys);
 
   const handleChange = (event) => {
