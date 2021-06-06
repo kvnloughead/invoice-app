@@ -7,34 +7,40 @@ import { accessObjectProperty } from '../../../utils/helpers';
 import calendarIcon from '../../../images/icon-calendar.svg';
 
 import {
-  InputContainer, Label, InputElement, CalendarIcon,
+  InputContainer, Label, Span, InputElement, CalendarIcon,
 } from './style';
 
 const DateInput = ({ data }) => {
   const { currentInvoice } = useContext(AppContext);
-  const { values, setValues } = useContext(FormContext);
+  const {
+    values, setValues, errors, setErrors, setIsValid,
+  } = useContext(FormContext);
   const inputValue = accessObjectProperty(currentInvoice, data.keys);
+  const identifier = data.keys.join('.');
+  const isError = errors[identifier];
 
   const handleChange = (event) => {
     const { target } = event;
     const { name, value } = target;
     setValues({ ...values, [name]: value });
-    // setErrors({ ...errors, [name]: target.validationMessage });
-    // setIsValid(target.closest('form').checkValidity());
+    setErrors({ ...errors, [name]: target.validationMessage });
+    setIsValid(target.closest('form').checkValidity());
   };
 
   return (
     <InputContainer>
-      <Label htmlForm={data.label}>
+      <Label isError={isError} htmlForm={data.label}>
         {data.label}
+        <Span>{errors.createdAt && 'Required'}</Span>
       </Label>
       <InputElement
-        id={data.label}
-        name={data.label}
+        id={identifier}
+        name={identifier}
         defaultValue={inputValue}
         onChange={handleChange}
         width={data.width}
-        type="data"
+        type="text"
+        required
       />
       <CalendarIcon src={calendarIcon} />
     </InputContainer>
