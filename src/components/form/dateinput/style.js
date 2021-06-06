@@ -48,11 +48,3 @@ export const InputElement = styled.input`
   box-sizing: border-box;
   margin-right: 24px;
 `;
-
-export const CalendarIcon = styled.img`
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  top: 41px;
-  left: 209px;
-`;

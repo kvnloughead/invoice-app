@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import AppContext from '../../../contexts/AppContext';
 import PaidStatus from '../../common/paidstatus/PaidStatus';
-import { formatCurrency } from '../../../utils/helpers';
+import { formatCurrency, formatDate } from '../../../utils/helpers';
 
 import {
   SummaryContainer, Id, Date, Name, Cost, ViewInvoiceButton,
@@ -18,7 +18,7 @@ const InvoiceSummary = ({ data }) => {
   return (
     <SummaryContainer>
       <Id>{data.id}</Id>
-      <Date>{`Due ${data.createdAt}`}</Date>
+      <Date>{`Due ${formatDate(data.createdAt)}`}</Date>
       <Name>{data.clientName}</Name>
       <Cost>{formatCurrency(data.total)}</Cost>
       <PaidStatus status={data.status} />

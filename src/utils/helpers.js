@@ -1,6 +1,6 @@
 import { months, localeString } from './constants';
 
-const formatDate = (date) => {
+export const formatDate = (date) => {
   const [y, m, d] = date.split('-');
   return `${d} ${months[parseInt(m, 10)]} ${y}`;
 };
@@ -18,8 +18,8 @@ export const processInvoices = (invoices) => {
   const processedInvoices = invoices.map((invoice) => ({
     ...invoice,
     id: invoice.id,
-    createdAt: formatDate(invoice.createdAt),
-    paymentDue: formatDate(invoice.paymentDue),
+    createdAt: invoice.createdAt,
+    paymentDue: invoice.paymentDue,
     clientName: invoice.clientName,
     total: formatNumber(invoice.total),
     status: capitalizeFirstLetter(invoice.status),
