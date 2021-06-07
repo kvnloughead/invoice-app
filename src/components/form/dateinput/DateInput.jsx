@@ -3,14 +3,14 @@ import React, { useContext } from 'react';
 
 import AppContext from '../../../contexts/AppContext';
 import FormContext from '../../../contexts/FormContext';
-import { accessObjectProperty } from '../../../utils/helpers';
-// import { formatDate } from '../../../utils/helpers';
+import { accessObjectProperty, formatDate } from '../../../utils/helpers';
 
 import {
   InputContainer, Label, Span, InputElement,
 } from './style';
 
 const DateInput = ({ data }) => {
+  const dateRef = React.useRef(null);
   const { currentInvoice } = useContext(AppContext);
   const {
     values, setValues, errors, setErrors, setIsValid,
@@ -18,6 +18,9 @@ const DateInput = ({ data }) => {
   const defaultValue = accessObjectProperty(currentInvoice, data.keys);
   const identifier = data.keys.join('.');
   const isError = errors[identifier];
+  const formattedDate = (dateRef.current && formatDate(dateRef.current.value))
+                        || formatDate(currentInvoice.createdAt);
+  const [displayValue, setDisplayValue] = React.useState(formattedDate);
 
   const handleChange = (event) => {
     const { target } = event;
@@ -27,23 +30,12 @@ const DateInput = ({ data }) => {
     setIsValid(target.closest('form').checkValidity());
   };
 
-  const handleFocus = (event) => {
-    debugger;
-    console.log(event);
-    // const { target } = event;
-    // const { name, value } = target;
-    // const newValue = value.replace(',', '');
-    // setValues({ ...values, [name]: newValue });
+  const handleFocus = () => {
+    setDisplayValue('');
   };
 
-  const handleBlur = (event) => {
-    debugger;
-    console.log(event);
-    // const { target } = event;
-    // const { name, value } = target;
-    // eslint-disable-next-line max-len
-    // const newValue = parseFloat(value).toLocaleString('en-us', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    // setValues({ ...values, [name]: newValue });
+  const handleBlur = () => {
+    setDisplayValue(formattedDate);
   };
 
   return (
@@ -53,9 +45,11 @@ const DateInput = ({ data }) => {
         <Span>{errors.createdAt && 'Required'}</Span>
       </Label>
       <InputElement
+        ref={dateRef}
         id={identifier}
         name={identifier}
         value={values[identifier] !== undefined ? values[identifier] : defaultValue}
+        displayValue={displayValue}
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}

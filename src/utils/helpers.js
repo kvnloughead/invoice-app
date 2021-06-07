@@ -1,8 +1,9 @@
 import { months, localeString } from './constants';
 
 export const formatDate = (date) => {
+  debugger;
   const [y, m, d] = date.split('-');
-  return `${d} ${months[parseInt(m, 10)]} ${y}`;
+  return `${d} ${months[parseInt(m, 10) - 1]} ${y}`;
 };
 
 const formatNumber = (cost, locale = localeString) => cost.toLocaleString(locale, {

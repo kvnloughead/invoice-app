@@ -40,11 +40,22 @@ export const InputElement = styled.input`
   border-radius: 5px;
   border: ${({ isError }) => (isError ? '#EC5757' : 'rgba(0, 0, 0, 0.5)')} 1px solid;
   padding-left: 20px;
-  font-family: Spartan;
   font-size: 12px;
   font-weight: 700;
   line-height: 15px;
   letter-spacing: -0.25px;
   box-sizing: border-box;
   margin-right: 24px;
+
+  &:before {
+    content: "${({ displayValue }) => displayValue}";
+    margin-right: 24px; 
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+    color: ${({ theme }) => theme.colorInput};
+    position: absolute;
+    background: ${({ theme }) => theme.bgInput};
+  }
 `;
