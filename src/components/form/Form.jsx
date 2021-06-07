@@ -9,7 +9,7 @@ import {
 } from '../../utils/constants';
 
 import Input from './input/Input';
-import DateInput from './dateinput/DateInput';
+// import DateInput from './dateinput/DateInput';
 import Dropdown from '../common/dropdown/Dropdown';
 import ItemsList from './itemslist/ItemsList';
 import Button from '../common/button/Button';
@@ -87,12 +87,12 @@ const Form = () => {
           <FieldSet key={fieldset.id}>
             <Legend>{fieldset.legend}</Legend>
             {fieldset.inputs.map((input) => (
-              <Input key={`${input.id}`} data={input} />
+              <Input key={`${input.id}`} data={input} type="text" />
             ))}
           </FieldSet>
         ))}
         <FieldSet>
-          <DateInput data={dateInputConfig} />
+          <Input data={dateInputConfig} type="date" />
           <Dropdown type="paymentTerms" />
           <Input data={descriptionInputConfig} />
         </FieldSet>

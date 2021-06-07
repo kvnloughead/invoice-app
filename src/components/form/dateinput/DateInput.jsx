@@ -10,7 +10,6 @@ import {
 } from './style';
 
 const DateInput = ({ data }) => {
-  const dateRef = React.useRef(null);
   const { currentInvoice } = useContext(AppContext);
   const {
     values, setValues, errors, setErrors, setIsValid,
@@ -18,6 +17,8 @@ const DateInput = ({ data }) => {
   const defaultValue = accessObjectProperty(currentInvoice, data.keys);
   const identifier = data.keys.join('.');
   const isError = errors[identifier];
+
+  const dateRef = React.useRef(null);
   const formattedDate = (dateRef.current && formatDate(dateRef.current.value))
                         || formatDate(currentInvoice.createdAt);
   const [displayValue, setDisplayValue] = React.useState(formattedDate);

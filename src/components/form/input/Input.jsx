@@ -1,30 +1,18 @@
 /* eslint-disable react/prop-types */
-import React, { useContext, useMemo } from 'react';
+import React from 'react';
 
-import AppContext from '../../../contexts/AppContext';
-import FormContext from '../../../contexts/FormContext';
-import { accessObjectProperty } from '../../../utils/helpers';
+import useDateInput from '../../common/hooks/useDateInput';
+import useInput from '../../common/hooks/useInput';
 
 import {
   InputContainer, Label, Span, InputElement,
 } from './style';
 
-const Input = ({ data }) => {
-  const { currentInvoice } = useContext(AppContext);
+const Input = ({ data, type }) => {
   const {
-    values, setValues, errors, setErrors, setIsValid,
-  } = useContext(FormContext);
-  const defaultValue = useMemo(() => accessObjectProperty(currentInvoice, data.keys));
-  const identifier = data.keys.join('.');
-  const isError = errors[identifier];
-
-  const handleChange = (event) => {
-    const { target } = event;
-    const { name, value } = target;
-    setValues({ ...values, [name]: value });
-    setErrors({ ...errors, [name]: target.validationMessage });
-    setIsValid(target.closest('form').checkValidity());
-  };
+    defaultValue, identifier, handleChange, currentInvoice, values, isError,
+  } = useInput(data);
+  const { displayValue, handleFocus, handleBlur } = useDateInput(currentInvoice);
 
   return (
     <InputContainer>
@@ -39,7 +27,11 @@ const Input = ({ data }) => {
         value={values[identifier] !== undefined ? values[identifier] : defaultValue}
         onChange={handleChange}
         width={data.width}
+        type={type}
         required
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        displayValue={displayValue}
       />
     </InputContainer>
   );
