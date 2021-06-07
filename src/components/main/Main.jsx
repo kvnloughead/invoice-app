@@ -16,7 +16,7 @@ function Main() {
     return (<NothingHere />);
   }
 
-  if (currentInvoice) {
+  if (currentInvoice && currentInvoice.clientName) {
     return (
       <>
         <InvoiceToolbar />

@@ -2,7 +2,7 @@ import React from 'react';
 
 import AppContext from '../../contexts/AppContext';
 import Address from './address/Address';
-import LineItems from './lineitems/LineItems';
+import InvoiceItems from './invoiceitems/InvoiceItems';
 import { formatDate } from '../../utils/helpers';
 
 import {
@@ -32,7 +32,7 @@ const Invoice = () => {
         <Item row="2" col="3">{currentInvoice.clientEmail}</Item>
       </Middle>
       <SentTo />
-      <LineItems items={currentInvoice.items} total={currentInvoice.total} />
+      <InvoiceItems items={currentInvoice.items} total={currentInvoice.total} />
       <AmountDue />
     </InvoiceContainer>
   );

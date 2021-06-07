@@ -17,7 +17,6 @@ const ItemsListInput = React.forwardRef(({
   const defaultValue = item[data.keys[2]];
 
   const handleChange = (event) => {
-    debugger;
     const { target } = event;
     const { name, value } = target;
     const [, index, propertyName] = name.split('.');

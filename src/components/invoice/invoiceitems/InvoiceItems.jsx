@@ -7,7 +7,7 @@ import {
   Table, TableRow, TH, TD, TableFooterRow, TF,
 } from './style';
 
-const LineItems = (({ items, total }) => {
+const InvoiceItems = (({ items, total }) => {
   const formattedItems = formatLineItems(items);
   return (
     <Table>
@@ -37,14 +37,14 @@ const LineItems = (({ items, total }) => {
   );
 });
 
-LineItems.propTypes = {
+InvoiceItems.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     name: string.isRequired,
     quantity: oneOfType([string, number]).isRequired,
     price: oneOfType([string, number]).isRequired,
     total: oneOfType([string, number]).isRequired,
   })).isRequired,
-  total: string.isRequired,
+  total: oneOfType([string, number]).isRequired,
 };
 
-export default LineItems;
+export default InvoiceItems;

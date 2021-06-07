@@ -4,7 +4,6 @@ import PropTypes, {
 } from 'prop-types';
 
 import { itemsListNames } from '../../../utils/constants';
-// import { formatItemsList } from '../../../utils/helpers';
 import Button from '../../common/button/Button';
 import LineItem from '../lineitem/LineItem';
 import FormContext from '../../../contexts/FormContext';
@@ -39,18 +38,15 @@ const ItemsList = (({ items }) => {
           </Row>
         </thead>
         <tbody>
-          {formattedItems.map((item, i) => {
-            debugger;
-            return (
-              <LineItem
-                key={`${item.name}-${item.total}`}
-                index={i}
-                item={item}
-                formattedItems={formattedItems}
-                setFormattedItems={setFormattedItems}
-              />
-            );
-          })}
+          {formattedItems.map((item, i) => (
+            <LineItem
+              key={`${item.name}-${item.total}`}
+              index={i}
+              item={item}
+              formattedItems={formattedItems}
+              setFormattedItems={setFormattedItems}
+            />
+          ))}
         </tbody>
       </Table>
       <Button type="addNewItem" handleClick={handleAddNewItem} />

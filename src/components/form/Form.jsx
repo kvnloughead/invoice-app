@@ -9,13 +9,12 @@ import {
 } from '../../utils/constants';
 
 import Input from './input/Input';
-// import DateInput from './dateinput/DateInput';
 import Dropdown from '../common/dropdown/Dropdown';
 import ItemsList from './itemslist/ItemsList';
 import Button from '../common/button/Button';
 
 import {
-  FormContainer, Title, FieldSet, Legend, Buttons,
+  FormContainer, Title, Buttons, Legend, FieldSet,
 } from './style';
 
 const Form = () => {
@@ -31,27 +30,13 @@ const Form = () => {
     values, setValues, errors, setErrors, isValid, setIsValid,
   };
 
-  // const resetForm = useCallback(
-  //   (newValues = { email: '', password: '', username: '' },
-  // newErrors = {}, newIsValid = false) => {
-  //     setValues(newValues);
-  //     setErrors(newErrors);
-  //     setIsValid(newIsValid);
-  //     setSubmitError('');
-  //   },
-  //   [setValues, setErrors, setIsValid],
-  // );
-
   const closeForm = (evt) => {
-    debugger;
     if (evt.target.id.split('-')[0] === 'cancel' || evt.key === 'Escape') {
       setCurrentForm(null);
-      // resetForm();
     }
   };
 
   const handleSubmit = (evt) => {
-    debugger;
     evt.preventDefault();
     const newInvoice = { ...currentInvoice };
     Object.entries(values).forEach(([name, value]) => {

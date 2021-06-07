@@ -8,7 +8,6 @@ import {
   Row, TD, Total, DeleteIcon,
 } from './style';
 
-// eslint-disable-next-line react/prop-types
 const LineItem = ({
   item, index, formattedItems, setFormattedItems,
 }) => {
