@@ -1,5 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 
+const padWithZero = (number) => (parseInt(number, 10) < 10 ? `0${number}` : number);
+const getCurrentDate = () => {
+  let [m, d, y] = new Date().toLocaleDateString().split('/');
+  m = padWithZero(m);
+  d = padWithZero(d);
+  return `${y}-${m}-${d}`;
+};
+
 export const localeString = 'en-us';
 export const currency = '$';
 export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -218,7 +226,7 @@ export const descriptionInputConfig = {
 
 export const blankInvoice = {
   id: '',
-  createdAt: '',
+  createdAt: getCurrentDate(),
   paymentDue: '',
   description: '',
   paymentTerms: 1,

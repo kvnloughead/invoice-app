@@ -24,5 +24,8 @@ module.exports = {
     'no-debugger': 0,
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
+    'prefer-const': ['error', {
+      destructuring: 'all',
+    }],
   },
 };
