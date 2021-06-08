@@ -20,8 +20,14 @@ export const Label = styled.label`
   font-weight: 500;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: ${({ theme }) => theme.colorInputLabel};
+  color: ${({ theme, isError }) => (isError ? '#EC5757' : theme.colorInputLabel)};
   margin-bottom: 10px;
+`;
+
+export const Span = styled.span`
+  color: #EC5757;
+  margin-right: 24px;
+  float: right;
 `;
 
 export const InputElement = styled.input`
@@ -30,7 +36,7 @@ export const InputElement = styled.input`
   background: ${({ theme }) => theme.bgInput};
   height: 48px;
   border-radius: 5px;
-  border: rgba(0, 0, 0, 0.5) 1px solid;
+  border: ${({ isError }) => (isError ? '#EC5757' : 'rgba(0, 0, 0, 0.5)')} 1px solid;
   padding-left: 20px;
   font-size: 12px;
   font-weight: 700;
@@ -38,4 +44,16 @@ export const InputElement = styled.input`
   letter-spacing: -0.25px;
   box-sizing: border-box;
   margin-right: 24px;
+
+  &:before {
+    content: "${({ displayValue }) => displayValue}";
+    margin-right: 24px; 
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+    color: ${({ theme }) => theme.colorInput};
+    position: absolute;
+    background: ${({ theme }) => theme.bgInput};
+  }
 `;

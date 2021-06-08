@@ -2,7 +2,8 @@ import React from 'react';
 
 import AppContext from '../../contexts/AppContext';
 import Address from './address/Address';
-import LineItems from './lineitems/LineItems';
+import InvoiceItems from './invoiceitems/InvoiceItems';
+import { formatDate } from '../../utils/helpers';
 
 import {
   InvoiceContainer, TopLeft, Id, Description, Middle,
@@ -21,9 +22,9 @@ const Invoice = () => {
       <Address ta="right" data={currentInvoice.senderAddress} />
       <Middle>
         <Label col="1">Invoice Date</Label>
-        <Item row="2" col="1">{currentInvoice.createdAt}</Item>
+        <Item row="2" col="1">{formatDate(currentInvoice.createdAt)}</Item>
         <Label row="4" col="1">Payment Due</Label>
-        <Item row="5" col="1">{currentInvoice.paymentDue}</Item>
+        <Item row="5" col="1">{formatDate(currentInvoice.paymentDue)}</Item>
         <Label row="1" col="2">Bill To</Label>
         <Item row="2" col="2">{currentInvoice.clientName}</Item>
         <Address row="3" col="2" data={currentInvoice.clientAddress} />
@@ -31,7 +32,7 @@ const Invoice = () => {
         <Item row="2" col="3">{currentInvoice.clientEmail}</Item>
       </Middle>
       <SentTo />
-      <LineItems items={currentInvoice.items} total={currentInvoice.total} />
+      <InvoiceItems items={currentInvoice.items} total={currentInvoice.total} />
       <AmountDue />
     </InvoiceContainer>
   );

@@ -4,23 +4,25 @@ import PropTypes, {
 } from 'prop-types';
 
 import { itemsListNames } from '../../../utils/constants';
-import { formatItemsList } from '../../../utils/helpers';
 import Button from '../../common/button/Button';
 import LineItem from '../lineitem/LineItem';
+import FormContext from '../../../contexts/FormContext';
 
 import {
   Fieldset, Legend, Table, Row, TH,
 } from './style';
 
 // eslint-disable-next-line react/prop-types
-const ItemsList = (({ items, setValues, values }) => {
-  const [formattedItems, setFormattedItems] = React.useState(formatItemsList(items));
+const ItemsList = (({ items }) => {
+  const { values, setValues } = React.useContext(FormContext);
+  const [formattedItems, setFormattedItems] = React.useState(items);
 
   const handleAddNewItem = (evt) => {
     evt.preventDefault();
     const emptyItem = {
       name: '', quantity: '0', price: '0', total: '0',
     };
+    setValues({ ...values, items: [...items, emptyItem] });
     setFormattedItems([...formattedItems, emptyItem]);
   };
 
@@ -41,8 +43,6 @@ const ItemsList = (({ items, setValues, values }) => {
               key={`${item.name}-${item.total}`}
               index={i}
               item={item}
-              values={values}
-              setValues={setValues}
               formattedItems={formattedItems}
               setFormattedItems={setFormattedItems}
             />

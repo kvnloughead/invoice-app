@@ -1,16 +1,16 @@
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+import { months, localeString } from './constants';
 
-const formatDate = (date) => {
+export const formatDate = (date) => {
   const [y, m, d] = date.split('-');
-  return `${d} ${months[parseInt(m, 10)]} ${y}`;
+  return `${d} ${months[parseInt(m, 10) - 1]} ${y}`;
 };
 
-const formatMoney = (cost, locale = 'en-us', currency = 'USD') => {
-  // Assumes that currency is a single character and that
-  // there is no space is between that character and the number
-  const money = cost.toLocaleString(locale, { style: 'currency', currency });
-  return `${money[0]} ${money.slice(1)}`;
-};
+const formatNumber = (cost, locale = localeString) => cost.toLocaleString(locale, {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+export const formatCurrency = (cost) => `$ ${formatNumber(cost)}`;
 
 const capitalizeFirstLetter = (word) => `${word[0].toUpperCase()}${word.slice(1)}`;
 
@@ -18,25 +18,25 @@ export const processInvoices = (invoices) => {
   const processedInvoices = invoices.map((invoice) => ({
     ...invoice,
     id: invoice.id,
-    createdAt: formatDate(invoice.createdAt),
-    paymentDue: formatDate(invoice.paymentDue),
+    createdAt: invoice.createdAt,
+    paymentDue: invoice.paymentDue,
     clientName: invoice.clientName,
-    total: formatMoney(invoice.total),
+    total: formatNumber(invoice.total),
     status: capitalizeFirstLetter(invoice.status),
     items: invoice.items.map((item) => ({
       ...item,
-      price: formatMoney(item.price),
-      total: formatMoney(item.total),
+      price: formatNumber(item.price),
+      total: formatNumber(item.total),
     })),
   }));
   return processedInvoices;
 };
 
-export const formatItemsList = (items) => {
+export const formatLineItems = (items) => {
   const formattedItems = items.map((item) => (item.quantity === 0 ? items : {
     ...item,
-    price: item.price.split(' ')[1],
-    total: item.total.split(' ')[1],
+    price: formatCurrency(item.price),
+    total: formatCurrency(item.total),
   }));
   return formattedItems;
 };

@@ -46,7 +46,7 @@ export const FormSelect = styled.select`
   width: 240px;
   height: 48px;
   border-radius: 5px;
-  border: rgba(0, 0, 0, 0.05) 1px solid;
+  border: rgba(0, 0, 0, 0.5) 1px solid;
   padding-left: 20px;
   font-size: 12px;
   font-weight: 700;

@@ -1,5 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 
+export const localeString = 'en-us';
+export const currency = '$';
+export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 export const lineItemNames = {
   name: 'Item Name',
   quantity: 'QTY.',

@@ -1,18 +1,22 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
+
+import FormContext from '../../../contexts/FormContext';
 
 import {
   InputContainer, InputElement,
 } from './style';
 
 const ItemsListInput = React.forwardRef(({
-  data, setValues, values, type, item, total,
+  data, type, item, total,
 }, ref) => {
+  const {
+    values, setValues, errors, setErrors, setIsValid,
+  } = useContext(FormContext);
   const identifier = data.keys.join('.');
   const defaultValue = item[data.keys[2]];
 
   const handleChange = (event) => {
-    debugger;
     const { target } = event;
     const { name, value } = target;
     const [, index, propertyName] = name.split('.');
@@ -23,8 +27,8 @@ const ItemsListInput = React.forwardRef(({
     } else {
       setValues({ ...values, [name]: value, [`items.${index}.total`]: total() });
     }
-    // setErrors({ ...errors, [name]: target.validationMessage });
-    // setIsValid(target.closest('form').checkValidity());
+    setErrors({ ...errors, [name]: target.validationMessage });
+    setIsValid(target.closest('form').checkValidity());
   };
 
   const handleFocus = (event) => {
@@ -44,6 +48,7 @@ const ItemsListInput = React.forwardRef(({
       setValues({ ...values, [name]: newValue });
     }
   };
+
   return (
     <InputContainer>
       <InputElement

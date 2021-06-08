@@ -1,8 +1,7 @@
-/* eslint-disable max-len */
-
 import React, { useState, useEffect } from 'react';
 
 import AppContext from '../../contexts/AppContext';
+import FormContext from '../../contexts/FormContext';
 import {
   formConfig,
   dateInputConfig,
@@ -10,13 +9,12 @@ import {
 } from '../../utils/constants';
 
 import Input from './input/Input';
-import DateInput from './dateinput/DateInput';
 import Dropdown from '../common/dropdown/Dropdown';
 import ItemsList from './itemslist/ItemsList';
 import Button from '../common/button/Button';
 
 import {
-  FormContainer, Title, FieldSet, Legend, Buttons,
+  FormContainer, Title, Buttons, Legend, FieldSet,
 } from './style';
 
 const Form = () => {
@@ -24,45 +22,37 @@ const Form = () => {
     currentForm, currentInvoice, setCurrentInvoice, setCurrentForm,
   } = React.useContext(AppContext);
   const thisForm = formConfig[currentForm];
-  const [values, setValues] = useState({});
-  // const [, setErrors] = useState({});
-  // const [, setIsValid] = useState(false);
 
-  // const resetForm = useCallback(
-  //   (newValues = { email: '', password: '', username: '' },
-  // newErrors = {}, newIsValid = false) => {
-  //     setValues(newValues);
-  //     setErrors(newErrors);
-  //     setIsValid(newIsValid);
-  //     setSubmitError('');
-  //   },
-  //   [setValues, setErrors, setIsValid],
-  // );
+  const [values, setValues] = useState({ items: currentInvoice.items });
+  const [errors, setErrors] = useState({});
+  const [isValid, setIsValid] = useState(false);
+  const state = {
+    values, setValues, errors, setErrors, isValid, setIsValid,
+  };
 
   const closeForm = (evt) => {
-    if (evt.target.tagName !== 'button' || evt.key === 'Escape') {
+    if (evt.target.id.split('-')[0] === 'cancel' || evt.key === 'Escape') {
       setCurrentForm(null);
-      // resetForm();
     }
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const newInvoice = { ...currentInvoice };
-    debugger;
     Object.entries(values).forEach(([name, value]) => {
       const keys = name.split('.');
       if (keys.length === 3) {
-        newInvoice[keys[0]][keys[1]][keys[2]] = value;
+        newInvoice[keys[0]][parseInt(keys[1], 10)][keys[2]] = value;
       } else if (keys.length === 2) {
         newInvoice[keys[0]][keys[1]] = value;
       } else {
         newInvoice[keys[0]] = value;
       }
-      if (currentForm === 'new') {
-        newInvoice.status = 'Pending';
-      }
+      newInvoice.total = parseFloat(values.items.reduce((a, b) => a + b.total, 0));
     });
+    if (currentForm === 'new') {
+      newInvoice.status = 'Pending';
+    }
     setCurrentInvoice(newInvoice);
     setCurrentForm(null);
   };
@@ -75,27 +65,29 @@ const Form = () => {
   }, [currentForm]);
 
   return currentForm && (
-    <FormContainer form={currentForm}>
-      <Title>{`${thisForm.title} ${currentInvoice.id}`}</Title>
-      {thisForm.fieldsets.map((fieldset) => (
-        <FieldSet key={fieldset.id}>
-          <Legend>{fieldset.legend}</Legend>
-          {fieldset.inputs.map((input) => (
-            <Input key={`${input.id}`} values={values} setValues={setValues} data={input} />
-          ))}
+    <FormContext.Provider value={state}>
+      <FormContainer form={currentForm}>
+        <Title>{`${thisForm.title} ${currentInvoice.id}`}</Title>
+        {thisForm.fieldsets.map((fieldset) => (
+          <FieldSet key={fieldset.id}>
+            <Legend>{fieldset.legend}</Legend>
+            {fieldset.inputs.map((input) => (
+              <Input key={`${input.id}`} data={input} type="text" />
+            ))}
+          </FieldSet>
+        ))}
+        <FieldSet>
+          <Input data={dateInputConfig} type="date" />
+          <Dropdown type="paymentTerms" />
+          <Input data={descriptionInputConfig} />
         </FieldSet>
-      ))}
-      <FieldSet>
-        <DateInput values={values} setValues={setValues} data={dateInputConfig} />
-        <Dropdown type="paymentTerms" />
-        <Input values={values} setValues={setValues} data={descriptionInputConfig} />
-      </FieldSet>
-      <ItemsList items={currentInvoice.items} values={values} setValues={setValues} />
-      <Buttons>
-        <Button type="cancel" handleClick={closeForm} />
-        <Button type="saveChanges" handleClick={handleSubmit} />
-      </Buttons>
-    </FormContainer>
+        <ItemsList items={currentInvoice.items} />
+        <Buttons>
+          <Button id="cancel" type="cancel" handleClick={closeForm} />
+          <Button type="saveChanges" handleClick={handleSubmit} />
+        </Buttons>
+      </FormContainer>
+    </FormContext.Provider>
   );
 };
 
