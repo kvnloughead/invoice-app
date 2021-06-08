@@ -127,7 +127,6 @@ export const formConfig = {
   },
   new: {
     title: 'New Invoice',
-    id: uuidv4(),
     fieldsets: [
       {
         legend: 'Bill From',
@@ -157,7 +156,7 @@ export const formConfig = {
             id: uuidv4(),
           },
         ],
-
+        id: uuidv4(),
       },
       {
         legend: 'Bill To',
