@@ -14,7 +14,7 @@ import ItemsList from './itemslist/ItemsList';
 import Button from '../common/button/Button';
 
 import {
-  FormContainer, Title, Span, Buttons, Legend, FieldSet,
+  FormContainer, Title, Span, Buttons, Legend, FieldSet, FlexRow,
 } from './style';
 
 const Form = () => {
@@ -25,13 +25,13 @@ const Form = () => {
 
   const [values, setValues] = useState({ items: currentInvoice.items });
   const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(false);
+  const [isValid, setIsValid] = useState(currentForm === 'edit');
   const state = {
     values, setValues, errors, setErrors, isValid, setIsValid,
   };
 
   const closeForm = (evt) => {
-    if (evt.target.id.split('-')[0] === 'cancel' || evt.key === 'Escape') {
+    if (evt.type === 'click' || evt.key === 'Escape') {
       setCurrentForm(null);
     }
   };
@@ -69,7 +69,7 @@ const Form = () => {
       <FormContainer form={currentForm}>
         <Title>
           {`${thisForm.title} `}
-          <Span>{`${currentInvoice.id}`}</Span>
+          <Span form={currentForm}>{`${currentInvoice.id}`}</Span>
         </Title>
         {thisForm.fieldsets.map((fieldset) => (
           <FieldSet key={fieldset.id}>
@@ -85,9 +85,21 @@ const Form = () => {
           <Input data={descriptionInputConfig} />
         </FieldSet>
         <ItemsList items={currentInvoice.items} />
-        <Buttons>
-          <Button id="cancel" type="cancel" handleClick={closeForm} />
-          <Button type="saveChanges" handleClick={handleSubmit} />
+        <Buttons form={currentForm}>
+          {currentForm === 'edit' ? (
+            <>
+              <Button buttonStyle="cancel" id="cancel" handleClick={closeForm} />
+              <Button type="submit" disabled={!isValid} buttonStyle="saveChanges" handleClick={handleSubmit} />
+            </>
+          ) : (
+            <>
+              <Button buttonStyle="discard" handleClick={closeForm} />
+              <FlexRow>
+                <Button buttonStyle="saveAsDraft" handleClick={closeForm} />
+                <Button type="submit" disabled={!isValid} buttonStyle="saveChanges" handleClick={handleSubmit} />
+              </FlexRow>
+            </>
+          )}
         </Buttons>
       </FormContainer>
     </FormContext.Provider>

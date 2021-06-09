@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { flexCenter } from '../../utils/utility-styles';
 
 export const FormContainer = styled.form`
   visibility: ${({ form }) => (form ? 'visible' : 'hidden')};
@@ -22,7 +23,7 @@ export const Title = styled.h2`
 
 export const Span = styled.span`
   &:before {
-    content: "${({ form }) => (form === 'new' ? '#' : '')}";
+    content: "${({ form }) => (form === 'edit' ? '#' : '')}";
     font-weight: 700;
     color: #888EB0;
   }
@@ -48,5 +49,10 @@ export const Buttons = styled.div`
   display: flex;
   padding-top: 39px;
   gap: 8px;
-  justify-content: flex-end;
+  justify-content: ${({ form }) => (form === 'new' ? 'space-between' : 'flex-end')};
+`;
+
+export const FlexRow = styled.div`
+  ${flexCenter('row')}
+  gap: 8px;
 `;

@@ -51,7 +51,7 @@ export const Logo = styled.div`
   }
 `;
 
-export const FlexRow = styled.div`
+export const FlexColumn = styled.div`
   ${flexCenter('column')}
   width: 100%;
 `;

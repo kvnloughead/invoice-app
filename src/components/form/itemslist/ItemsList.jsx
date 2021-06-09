@@ -49,7 +49,7 @@ const ItemsList = (({ items }) => {
           ))}
         </tbody>
       </Table>
-      <Button type="addNewItem" handleClick={handleAddNewItem} />
+      <Button buttonStyle="addNewItem" handleClick={handleAddNewItem} />
     </Fieldset>
   );
 });

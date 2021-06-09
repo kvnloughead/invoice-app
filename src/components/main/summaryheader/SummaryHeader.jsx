@@ -31,7 +31,7 @@ const SummaryHeader = ({ numInvoices }) => {
         </div>
         <Row ai="center">
           <Dropdown type="filterBy" />
-          <Button handleClick={openNewInvoiceForm} type="newInvoice" mode="light" />
+          <Button handleClick={openNewInvoiceForm} buttonStyle="newInvoice" mode="light" />
         </Row>
       </Container>
     </>

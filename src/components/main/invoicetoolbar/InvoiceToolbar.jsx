@@ -39,9 +39,9 @@ const InvoiceToolbar = () => {
           <PaidStatus status={currentInvoice.status} />
         </FlexRow>
         <Buttons>
-          <Button type="edit" handleClick={openEditForm} />
-          <Button type="delete" handleClick={deleteInvoice} />
-          <Button type="markAsPaid" handleClick={markAsPaid} />
+          <Button buttonStyle="edit" handleClick={openEditForm} />
+          <Button buttonStyle="delete" handleClick={deleteInvoice} />
+          <Button buttonStyle="markAsPaid" handleClick={markAsPaid} />
         </Buttons>
       </Toolbar>
     </Container>

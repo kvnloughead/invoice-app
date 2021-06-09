@@ -34,6 +34,12 @@ export const lightTheme = {
       hover: '#DFE3FA',
       width: '73px',
     },
+    discard: {
+      background: '#F9FAFE',
+      color: '#7E88C3',
+      hover: '#DFE3FA',
+      width: '96px',
+    },
     saveAsDraft: {
       background: '#373B53',
       color: '#888EB0',
@@ -41,6 +47,12 @@ export const lightTheme = {
       width: '133px',
     },
     saveChanges: {
+      background: '#7C5DFA',
+      color: '#FFF',
+      hover: '#9277FF',
+      width: '133px',
+    },
+    saveAndSend: {
       background: '#7C5DFA',
       color: '#FFF',
       hover: '#9277FF',

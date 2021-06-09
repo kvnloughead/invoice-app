@@ -32,6 +32,8 @@ export const buttonLabels = {
   edit: 'Edit',
   saveAsDraft: 'Save as Draft',
   saveChanges: 'Save Changes',
+  saveAndSend: 'Save & Send',
+  discard: 'Discard',
   cancel: 'Cancel',
   delete: 'Delete',
   addNewItem: '+ Add New Item',
