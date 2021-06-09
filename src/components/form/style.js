@@ -12,7 +12,10 @@ export const FormContainer = styled.form`
   top: 0;
   z-index: 2;
   box-sizing: border-box;
+  overflow-y: scroll;
+  height: 100vh;
 `;
+
 export const Title = styled.h2`
   font-size: 24px;
   font-weight: 700;
@@ -50,6 +53,9 @@ export const Buttons = styled.div`
   padding-top: 39px;
   gap: 8px;
   justify-content: ${({ form }) => (form === 'new' ? 'space-between' : 'flex-end')};
+  position: fixed;
+  bottom: 0;
+  right: 0;
 `;
 
 export const FlexRow = styled.div`

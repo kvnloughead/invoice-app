@@ -9,6 +9,18 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Spartan', Helvetica, Arial, sans-serif;
     transition: all 0.50s linear;
   }
+
+  form::-webkit-scrollbar {
+    width: 40px;
+  }
+
+  form::-webkit-scrollbar-thumb {
+    background-color: #DFE3FA;
+    border: 16px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 9999px;
+  }
+
   a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
     cursor: pointer;
   }
