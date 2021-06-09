@@ -56,4 +56,10 @@ export const InputElement = styled.input`
     position: absolute;
     background: ${({ theme }) => theme.bgInput};
   }
+
+  &::placeholder {
+    font-family: Spartan;
+    color: #0C0E16;
+    opacity: 0.4;
+  }
 `;

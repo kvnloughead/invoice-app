@@ -180,6 +180,7 @@ export const formConfig = {
             label: 'Client\'s Email',
             keys: ['clientEmail'],
             width: 1,
+            placeholder: 'e.g. email@example.com',
             id: uuidv4(),
           },
           {
@@ -221,6 +222,7 @@ export const dateInputConfig = {
 export const descriptionInputConfig = {
   label: 'Project Description',
   keys: ['description'],
+  placeholder: 'e.g. Graphic Design Service',
   width: 1,
 };
 

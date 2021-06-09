@@ -32,6 +32,7 @@ const Input = ({ data, type }) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         displayValue={displayValue}
+        placeholder={data.placeholder}
       />
     </InputContainer>
   );
