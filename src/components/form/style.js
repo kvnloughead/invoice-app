@@ -18,9 +18,11 @@ export const Title = styled.h2`
   line-height: 32px;
   letter-spacing: -0.5px;
   color: ${({ theme }) => theme.colorPrimary};
+`;
 
+export const Span = styled.span`
   &:before {
-    content: "#";
+    content: "${({ form }) => (form === 'new' ? '#' : '')}";
     font-weight: 700;
     color: #888EB0;
   }

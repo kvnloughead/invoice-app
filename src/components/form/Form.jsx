@@ -14,7 +14,7 @@ import ItemsList from './itemslist/ItemsList';
 import Button from '../common/button/Button';
 
 import {
-  FormContainer, Title, Buttons, Legend, FieldSet,
+  FormContainer, Title, Span, Buttons, Legend, FieldSet,
 } from './style';
 
 const Form = () => {
@@ -67,7 +67,10 @@ const Form = () => {
   return currentForm && (
     <FormContext.Provider value={state}>
       <FormContainer form={currentForm}>
-        <Title>{`${thisForm.title} ${currentInvoice.id}`}</Title>
+        <Title>
+          {`${thisForm.title} `}
+          <Span>{`${currentInvoice.id}`}</Span>
+        </Title>
         {thisForm.fieldsets.map((fieldset) => (
           <FieldSet key={fieldset.id}>
             <Legend>{fieldset.legend}</Legend>
