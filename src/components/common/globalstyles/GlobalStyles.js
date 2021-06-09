@@ -21,6 +21,10 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 9999px;
   }
 
+  form::-webkit-scrollbar-corner {
+    display: none;
+  }
+
   a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
     cursor: pointer;
   }

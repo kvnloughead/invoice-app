@@ -85,23 +85,23 @@ const Form = () => {
           <Input data={descriptionInputConfig} />
         </FieldSet>
         <ItemsList items={currentInvoice.items} />
-        <Buttons form={currentForm}>
-          {currentForm === 'edit' ? (
-            <>
-              <Button buttonStyle="cancel" id="cancel" handleClick={closeForm} />
-              <Button type="submit" disabled={!isValid} buttonStyle="saveChanges" handleClick={handleSubmit} />
-            </>
-          ) : (
-            <>
-              <Button buttonStyle="discard" handleClick={closeForm} />
-              <FlexRow>
-                <Button buttonStyle="saveAsDraft" handleClick={closeForm} />
-                <Button type="submit" disabled={!isValid} buttonStyle="saveChanges" handleClick={handleSubmit} />
-              </FlexRow>
-            </>
-          )}
-        </Buttons>
       </FormContainer>
+      <Buttons form={currentForm}>
+        {currentForm === 'edit' ? (
+          <>
+            <Button buttonStyle="cancel" id="cancel" handleClick={closeForm} />
+            <Button type="submit" disabled={!isValid} buttonStyle="saveChanges" handleClick={handleSubmit} />
+          </>
+        ) : (
+          <>
+            <Button buttonStyle="discard" handleClick={closeForm} />
+            <FlexRow>
+              <Button buttonStyle="saveAsDraft" handleClick={closeForm} />
+              <Button type="submit" disabled={!isValid} buttonStyle="saveChanges" handleClick={handleSubmit} />
+            </FlexRow>
+          </>
+        )}
+      </Buttons>
     </FormContext.Provider>
   );
 };

@@ -6,14 +6,26 @@ export const FormContainer = styled.form`
   background: ${({ theme }) => theme.bgForm};
   border-radius: 25px;
   width: 719px;
-  padding: 56px 56px 32px 159px;
+  padding: 56px 56px 0 159px;
   position: absolute;
   left: 0;
   top: 0;
   z-index: 2;
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-y: overlay;
   height: 100vh;
+  border-radius: 0 30px 30px 0;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.01);
+  }
 `;
 
 export const Title = styled.h2`
@@ -50,12 +62,22 @@ export const Legend = styled.legend`
 
 export const Buttons = styled.div`
   display: flex;
-  padding-top: 39px;
-  gap: 8px;
+  align-items: center;
   justify-content: ${({ form }) => (form === 'new' ? 'space-between' : 'flex-end')};
+
   position: fixed;
   bottom: 0;
-  right: 0;
+  left: 103px;
+  z-index: 2;
+
+  padding: 31px 56px 31px;
+  gap: 8px;
+  width: 616px;
+  height: 110px;
+  background: ${({ theme }) => theme.bgBtnContainer};
+
+  box-sizing: border-box;
+  border-radius: 0 30px 30px 0;
 `;
 
 export const FlexRow = styled.div`

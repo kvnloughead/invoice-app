@@ -5,7 +5,7 @@ import { secondaryTextStyles, flexCenter } from '../../../utils/utility-styles';
 export const Fieldset = styled.fieldset`
   padding: 0;
   border: none;
-  margin: 48px 0 0;
+  margin: 48px 0 110px;
   ${flexCenter('column')};
 `;
 
