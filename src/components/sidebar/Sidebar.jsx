@@ -1,23 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import Toggler from '../toggler/Toggler';
 import avatar from '../../images/image-avatar.jpg';
+import { themePropType } from '../themes/Themes';
 import {
   SidebarContainer, Logo, Avatar, FlexColumn,
 } from './style';
 
-const Sidebar = ({ children }) => (
+const Sidebar = ({ theme, themeToggler }) => (
   <SidebarContainer>
     <Logo />
     <FlexColumn>
-      {children}
+      <Toggler theme={theme} toggleTheme={themeToggler} />
       <Avatar src={avatar} alt="Current user's avatar" />
     </FlexColumn>
   </SidebarContainer>
 );
 
-Sidebar.propTypes = {
-  children: PropTypes.element.isRequired,
-};
+Sidebar.propTypes = themePropType;
 
 export default Sidebar;

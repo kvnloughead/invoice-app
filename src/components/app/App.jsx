@@ -7,12 +7,13 @@ import Sidebar from '../sidebar/Sidebar';
 import Main from '../main/Main';
 import Form from '../form/Form';
 
-import Toggler from '../toggler/Toggler';
+// import Toggler from '../toggler/Toggler';
 import useDarkMode from '../common/hooks/useDarkMode';
 import GlobalStyles from '../common/globalstyles/GlobalStyles';
 import { darkTheme, lightTheme } from '../themes/Themes';
 import { processInvoices } from '../../utils/helpers';
 import rawInvoices from '../../utils/data.json';
+import FormContextProvider from '../../contexts/FormState';
 
 function App() {
   const processedInvoices = useMemo(() => processInvoices(rawInvoices));
@@ -29,14 +30,12 @@ function App() {
   return (
     <ThemeProvider theme={themeMode}>
       <AppContext.Provider value={state}>
-        <GlobalStyles />
-        <div className="App">
-          <Sidebar>
-            <Toggler theme={theme} toggleTheme={themeToggler} />
-          </Sidebar>
+        <FormContextProvider>
+          <GlobalStyles />
+          <Sidebar themeToggler={themeToggler} />
           <Main />
-          {currentForm && <Form />}
-        </div>
+          <Form />
+        </FormContextProvider>
       </AppContext.Provider>
     </ThemeProvider>
   );

@@ -8,6 +8,11 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colorPrimary};
     font-family: 'Spartan', Helvetica, Arial, sans-serif;
     transition: all 0.50s linear;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: relative;
   }
 
   form::-webkit-scrollbar {

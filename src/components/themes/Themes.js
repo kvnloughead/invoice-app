@@ -1,3 +1,7 @@
+import {
+  string, bool, shape, node,
+} from 'prop-types';
+
 import nothingHereLight from '../../images/nothing-here.png';
 import nothingHereDark from '../../images/nothing-here-dark.png';
 
@@ -81,6 +85,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  isLight: false,
   bgMain: '#141625',
   bgSidebar: '#1E2139',
   bgInvoice: '#1E2139',
@@ -156,4 +161,83 @@ export const darkTheme = {
       width: '96px',
     },
   },
+};
+
+export const themePropType = {
+  isLight: bool.isRequired,
+  bgMain: string.isRequired,
+  bgSidebar: string.isRequired,
+  bgInvoice: string.isRequired,
+  bgForm: string.isRequired,
+  bgInput: string.isRequired,
+  bgBtnContainer: string.isRequired,
+  colorPrimary: string.isRequired,
+  colorSecondary: string.isRequired,
+  colorName: string.isRequired,
+  colorInput: string.isRequired,
+  colorInputLabel: string.isRequired,
+  colorTotal: string.isRequired,
+  nothingHere: node.isRequired,
+  button: shape({
+    newInvoice: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+    markAsPaid: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+    edit: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+    saveAsDraft: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+    saveChanges: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+    saveAndSend: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+    delete: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+    addNewItem: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+    discard: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+    cancel: {
+      background: string.isRequired,
+      hover: string.isRequired,
+      color: string.isRequired,
+      width: string.isRequired,
+    },
+  }).isRequired,
 };
