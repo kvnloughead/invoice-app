@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import AppContext from '../../contexts/AppContext';
-import FormContext from '../../contexts/FormContext';
 import {
   formConfig,
   dateInputConfig,
@@ -16,56 +15,20 @@ import Button from '../common/button/Button';
 import {
   FormContainer, Title, Span, Buttons, Legend, FieldSet, FlexRow,
 } from './style';
+import FormContext from '../../contexts/FormContext';
 
 const Form = () => {
   const {
-    currentForm, currentInvoice, setCurrentInvoice, setCurrentForm,
+    currentForm, currentInvoice,
   } = React.useContext(AppContext);
   const thisForm = formConfig[currentForm];
 
-  const [values, setValues] = useState({ items: currentInvoice.items });
-  const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(currentForm === 'edit');
-  const state = {
-    values, setValues, errors, setErrors, isValid, setIsValid,
-  };
-
-  const closeForm = (evt) => {
-    if (evt.type === 'click' || evt.key === 'Escape') {
-      setCurrentForm(null);
-    }
-  };
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    const newInvoice = { ...currentInvoice };
-    Object.entries(values).forEach(([name, value]) => {
-      const keys = name.split('.');
-      if (keys.length === 3) {
-        newInvoice[keys[0]][parseInt(keys[1], 10)][keys[2]] = value;
-      } else if (keys.length === 2) {
-        newInvoice[keys[0]][keys[1]] = value;
-      } else {
-        newInvoice[keys[0]] = value;
-      }
-      newInvoice.total = parseFloat(values.items.reduce((a, b) => a + b.total, 0));
-    });
-    if (currentForm === 'new') {
-      newInvoice.status = 'Pending';
-    }
-    setCurrentInvoice(newInvoice);
-    setCurrentForm(null);
-  };
-
-  useEffect(() => {
-    document.addEventListener('keydown', closeForm);
-    return () => {
-      document.removeEventListener('keydown', closeForm);
-    };
-  }, [currentForm]);
+  const {
+    isValid, closeForm, handleSubmit,
+  } = React.useContext(FormContext);
 
   return currentForm && (
-    <FormContext.Provider value={state}>
+    <>
       <FormContainer form={currentForm}>
         <Title>
           {`${thisForm.title} `}
@@ -102,7 +65,7 @@ const Form = () => {
           </>
         )}
       </Buttons>
-    </FormContext.Provider>
+    </>
   );
 };
 

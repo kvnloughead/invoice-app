@@ -16,16 +16,6 @@ export const FormContainer = styled.form`
   height: 100vh;
   border-radius: 0 30px 30px 0;
 
-  &:before {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.01);
-  }
 `;
 
 export const Title = styled.h2`
