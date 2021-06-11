@@ -10,7 +10,7 @@ import {
 
 const InvoiceToolbar = () => {
   const {
-    currentInvoice, setCurrentInvoice, setCurrentForm, setInvoices, invoices,
+    currentInvoice, setCurrentInvoice, setCurrentForm, setInvoices, invoices, setIsOverlayOpen,
   } = React.useContext(AppContext);
 
   const goBack = () => {
@@ -19,6 +19,7 @@ const InvoiceToolbar = () => {
 
   const openEditForm = () => {
     setCurrentForm('edit');
+    setIsOverlayOpen(true);
   };
 
   const deleteInvoice = () => {

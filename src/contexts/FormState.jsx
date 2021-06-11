@@ -6,7 +6,7 @@ import FormContext from './FormContext';
 
 const FormContextProvider = ({ children }) => {
   const {
-    currentForm, currentInvoice, setCurrentInvoice, setCurrentForm, // setIsOverlayOpen,
+    currentForm, currentInvoice, setCurrentInvoice, setCurrentForm, setIsOverlayOpen,
   } = React.useContext(AppContext);
   const [values, setValues] = useState({
     items: [{
@@ -20,7 +20,7 @@ const FormContextProvider = ({ children }) => {
   const closeForm = (evt) => {
     if (evt.type === 'click' || evt.key === 'Escape') {
       setCurrentForm(null);
-      // setIsOverlayOpen(false);
+      setIsOverlayOpen(false);
     }
   };
 

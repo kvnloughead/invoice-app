@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import AppContext from '../../../contexts/AppContext';
@@ -11,10 +11,11 @@ import {
 } from './style';
 
 const SummaryHeader = ({ numInvoices }) => {
-  const { setCurrentForm, setCurrentInvoice } = React.useContext(AppContext);
+  const { setCurrentForm, setCurrentInvoice, setIsOverlayOpen } = useContext(AppContext);
   const openNewInvoiceForm = () => {
     setCurrentInvoice(blankInvoice);
     setCurrentForm('new');
+    setIsOverlayOpen(true);
   };
 
   return (

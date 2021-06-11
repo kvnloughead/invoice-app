@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import AppContext from '../../../contexts/AppContext';
+import FormContext from '../../../contexts/FormContext';
 
 const Div = styled.div`
   position: absolute;
@@ -14,8 +15,9 @@ const Div = styled.div`
 
 const Overlay = () => {
   const { isOverlayOpen } = React.useContext(AppContext);
+  const { closeForm } = React.useContext(FormContext);
   return (
-    <Div isOverlayOpen={isOverlayOpen} onClick={} />
+    <Div isOverlayOpen={isOverlayOpen} onClick={closeForm} />
   );
 };
 
