@@ -6,7 +6,7 @@ import FormContext from './FormContext';
 
 const FormContextProvider = ({ children }) => {
   const {
-    currentForm, currentInvoice, setCurrentInvoice, setCurrentForm, setIsOverlayOpen,
+    currentForm, currentInvoice, setCurrentInvoice, closeAllPopups,
   } = React.useContext(AppContext);
   const [values, setValues] = useState({
     items: [{
@@ -16,13 +16,6 @@ const FormContextProvider = ({ children }) => {
   if (values === null) debugger;
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(true);
-
-  const closeForm = (evt) => {
-    if (evt.type === 'click' || evt.key === 'Escape') {
-      setCurrentForm(null);
-      setIsOverlayOpen(false);
-    }
-  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -42,22 +35,22 @@ const FormContextProvider = ({ children }) => {
       newInvoice.status = 'Pending';
     }
     setCurrentInvoice(newInvoice);
-    setCurrentForm(null);
+    closeAllPopups(evt);
   };
 
   useEffect(() => {
-    document.addEventListener('keydown', closeForm);
+    document.addEventListener('keydown', closeAllPopups);
     return () => {
-      document.removeEventListener('keydown', closeForm);
+      document.removeEventListener('keydown', closeAllPopups);
     };
   }, [currentForm]);
 
   useEffect(() => {
-    setValues(currentInvoice === 'edit' && { items: currentInvoice.items });
-  }, [currentInvoice]);
+    setValues(currentForm === 'edit' && { items: currentInvoice.items });
+  }, [currentForm]);
 
   const state = {
-    values, setValues, errors, setErrors, isValid, setIsValid, closeForm, handleSubmit,
+    values, setValues, errors, setErrors, isValid, setIsValid, handleSubmit,
   };
 
   return (

@@ -18,13 +18,11 @@ import {
 import FormContext from '../../contexts/FormContext';
 
 const Form = () => {
-  const {
-    currentForm, currentInvoice,
-  } = React.useContext(AppContext);
+  const { currentForm, currentInvoice, closeAllPopups } = React.useContext(AppContext);
   const thisForm = formConfig[currentForm];
 
   const {
-    isValid, closeForm, handleSubmit,
+    isValid, handleSubmit, // closeForm,
   } = React.useContext(FormContext);
 
   return currentForm && (
@@ -52,14 +50,14 @@ const Form = () => {
       <Buttons form={currentForm}>
         {currentForm === 'edit' ? (
           <>
-            <Button buttonStyle="cancel" id="cancel" handleClick={closeForm} />
+            <Button buttonStyle="cancel" id="cancel" handleClick={closeAllPopups} />
             <Button type="submit" disabled={!isValid} buttonStyle="saveChanges" handleClick={handleSubmit} />
           </>
         ) : (
           <>
-            <Button buttonStyle="discard" handleClick={closeForm} />
+            <Button buttonStyle="discard" handleClick={closeAllPopups} />
             <FlexRow>
-              <Button buttonStyle="saveAsDraft" handleClick={closeForm} />
+              <Button buttonStyle="saveAsDraft" handleClick={closeAllPopups} />
               <Button type="submit" disabled={!isValid} buttonStyle="saveChanges" handleClick={handleSubmit} />
             </FlexRow>
           </>
