@@ -12,6 +12,11 @@ export const InvoiceContainer = styled.div`
   grid-template-columns: 196px 203px 1fr;
   padding: 48px;
   ${primaryTextStyles}
+  margin-left: 103px;
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 103px;
+  }
 `;
 
 export const TopLeft = styled.div`

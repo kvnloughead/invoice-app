@@ -12,4 +12,9 @@ export const NothingHere = styled.img.attrs(({ theme }) => ({
 export const SummaryContainer = styled.div`
   width: 730px;
   padding-top: 65px;
+  margin-left: 103px;
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 103px;
+  }
 `;

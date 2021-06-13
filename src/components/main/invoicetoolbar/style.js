@@ -8,6 +8,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  margin-left: 103px;
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 103px;
+  }
 `;
 
 export const BackButton = styled.button`

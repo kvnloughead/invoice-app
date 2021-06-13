@@ -15,7 +15,12 @@ export const SidebarContainer = styled.aside`
   ${flexCenter('column')}
   justify-content: space-between;
   z-index: 3;
+
 `;
+// @media screen and (max-width: 1000px) {
+//   transform: rotate(90deg);
+//   left: 50vw;
+// }
 
 export const Logo = styled.div`
   position: relative;
