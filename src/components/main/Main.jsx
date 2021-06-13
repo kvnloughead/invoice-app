@@ -18,22 +18,22 @@ function Main() {
 
   if (currentInvoice && currentInvoice.clientName) {
     return (
-      <>
+      <div>
         <InvoiceToolbar />
         <Invoice />
-      </>
+      </div>
     );
   }
 
   return (
-    <>
+    <div>
       <SummaryHeader numInvoices={numInvoices} />
       <SummaryContainer>
         {invoices.map((invoice) => (
           <InvoiceSummary data={invoice} key={invoice.id} />
         ))}
       </SummaryContainer>
-    </>
+    </div>
   );
 }
 

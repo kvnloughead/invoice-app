@@ -8,10 +8,9 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 730px;
   padding-top: 72px;
-  margin-left: 103px;
+  margin: auto;
 
   @media screen and (max-width: 1000px) {
-    margin-left: 103px;
   }
 `;
 

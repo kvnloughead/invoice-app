@@ -5,8 +5,6 @@ import logo from '../../images/logo.svg';
 import { bgStandard, flexCenter } from '../../utils/utility-styles';
 
 export const SidebarContainer = styled.aside`
-  position: fixed;
-  left: 0;
   height: 100vh;
   width: 103px;
   background: ${({ theme }) => theme.bgSidebar};
@@ -15,12 +13,14 @@ export const SidebarContainer = styled.aside`
   ${flexCenter('column')}
   justify-content: space-between;
   z-index: 3;
+  position: sticky;
+  top: 0;
+  bottom: 0;
 
+  @media screen and (max-width: 1000px) {
+    
+  }
 `;
-// @media screen and (max-width: 1000px) {
-//   transform: rotate(90deg);
-//   left: 50vw;
-// }
 
 export const Logo = styled.div`
   position: relative;
@@ -54,6 +54,9 @@ export const Logo = styled.div`
     z-index: 2;
     ${bgStandard(logo)}
   }
+
+  @media screen and (max-width: 1000px) {
+  }
 `;
 
 export const FlexColumn = styled.div`
@@ -66,4 +69,6 @@ export const Avatar = styled.img`
   width: 40px;
   border-radius: 50%;
   padding: 31px 0;
+  @media screen and (max-width: 1000px) {
+  }
 `;

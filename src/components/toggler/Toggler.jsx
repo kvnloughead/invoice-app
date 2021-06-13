@@ -16,6 +16,11 @@ const Button = styled.button`
   background-size: 20px 20px;
   padding: 42px 51.5px;
   border-bottom: solid 1px #494E6E;
+
+  @media screen and (max-width: 1000px) {
+    transform: rotate(90deg);
+    border-bottom: none;
+    border-right: solid 1px #494E6E;
   }
 `;
 

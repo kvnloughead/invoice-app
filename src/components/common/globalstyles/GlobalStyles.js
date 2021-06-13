@@ -2,17 +2,23 @@ import { createGlobalStyle } from 'styled-components';
 
 import calendarIcon from '../../../images/icon-calendar.svg';
 
+// display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
 const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.bgMain};
     color: ${({ theme }) => theme.colorPrimary};
     font-family: 'Spartan', Helvetica, Arial, sans-serif;
     transition: all 0.50s linear;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     height: 100vh;
     position: relative;
+  }
+
+  #root {
+    display: grid;
+    grid-template-columns: 103px 1fr;
   }
 
   form::-webkit-scrollbar {
