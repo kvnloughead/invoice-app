@@ -5,7 +5,7 @@ import { secondaryTextStyles, primaryTextStyles } from '../../utils/utility-styl
 export const InvoiceContainer = styled.div`
   width: 730px;
   box-sizing: border-box;
-  margin-top: 24px;
+  margin: 24px 0 0 103px;
   background: ${({ theme }) => theme.bgInvoice};
   display: grid;
   grid-template-rows: 75px 196px 1fr;

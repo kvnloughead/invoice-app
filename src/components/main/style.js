@@ -12,4 +12,5 @@ export const NothingHere = styled.img.attrs(({ theme }) => ({
 export const SummaryContainer = styled.div`
   width: 730px;
   padding-top: 65px;
+  margin-left: 103px;
 `;
