@@ -5,14 +5,14 @@ export const formatDate = (date) => {
   return `${d} ${months[parseInt(m, 10) - 1]} ${y}`;
 };
 
-const formatNumber = (cost, locale = localeString) => cost.toLocaleString(locale, {
+export const formatNumber = (cost, locale = localeString) => cost.toLocaleString(locale, {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
 
 export const formatCurrency = (cost) => `$ ${formatNumber(cost)}`;
 
-const capitalizeFirstLetter = (word) => `${word[0].toUpperCase()}${word.slice(1)}`;
+export const capitalizeFirstLetter = (word) => `${word[0].toUpperCase()}${word.slice(1)}`;
 
 export const processInvoices = (invoices) => {
   const processedInvoices = invoices.map((invoice) => ({

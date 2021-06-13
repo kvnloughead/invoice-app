@@ -17,4 +17,16 @@ export const InputElement = styled.input`
   line-height: 15px;
   letter-spacing: -0.25px;
   box-sizing: border-box;
+
+  &:before {
+    content: "${({ displayValue }) => displayValue}";
+    margin-right: 24px; 
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+    color: ${({ theme }) => theme.colorInput};
+    position: absolute;
+    background: ${({ theme }) => theme.bgInput};
+  }
 `;

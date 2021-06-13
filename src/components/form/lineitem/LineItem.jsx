@@ -16,7 +16,7 @@ const LineItem = ({
   const priceRef = React.useRef(null);
   const nameRef = React.useRef(null);
 
-  const total = () => {
+  const calculateTotal = () => {
     if (quantityRef.current !== null && priceRef.current !== null) {
       if (quantityRef.current.value === '' || priceRef.current.value === '') {
         return '0';
@@ -67,7 +67,7 @@ const LineItem = ({
           values={values}
           setValues={setValues}
           ref={quantityRef}
-          total={total}
+          total={calculateTotal}
         />
       </TD>
       <TD col={3}>
@@ -77,12 +77,12 @@ const LineItem = ({
           values={values}
           setValues={setValues}
           ref={priceRef}
-          total={total}
+          total={calculateTotal}
         />
       </TD>
       <TD col={4}>
         <Total>
-          {total()}
+          {calculateTotal()}
         </Total>
       </TD>
       <TD>

@@ -12,6 +12,12 @@ export const localeString = 'en-us';
 export const currency = '$';
 export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+export const paidStatusColors = {
+  paid: { color: 'rgba(51, 214, 159, 1)', background: 'rgba(51, 214, 159, .0571)' },
+  pending: { color: 'rgba(255, 143, 0, 1)', background: 'rgba(255, 143, 0, .0571)' },
+  draft: { color: 'rgba(55, 59, 83, 1)', background: 'rgba(55, 59, 83, .0571)' },
+};
+
 export const lineItemNames = {
   name: 'Item Name',
   quantity: 'QTY.',

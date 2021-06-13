@@ -12,7 +12,6 @@ import {
   Fieldset, Legend, Table, Row, TH,
 } from './style';
 
-// eslint-disable-next-line react/prop-types
 const ItemsList = (({ items }) => {
   const { values, setValues } = React.useContext(FormContext);
   const [formattedItems, setFormattedItems] = React.useState(items);

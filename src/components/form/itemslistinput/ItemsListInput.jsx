@@ -1,11 +1,9 @@
-/* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
+import { string, shape, number } from 'prop-types';
 
 import FormContext from '../../../contexts/FormContext';
 
-import {
-  InputContainer, InputElement,
-} from './style';
+import { InputContainer, InputElement } from './style';
 
 const ItemsListInput = React.forwardRef(({
   data, type, item, total,
@@ -14,6 +12,7 @@ const ItemsListInput = React.forwardRef(({
     values, setValues, errors, setErrors, setIsValid,
   } = useContext(FormContext);
   const identifier = data.keys.join('.');
+  debugger;
   const defaultValue = item[data.keys[2]];
 
   const handleChange = (event) => {
@@ -65,5 +64,17 @@ const ItemsListInput = React.forwardRef(({
     </InputContainer>
   );
 });
+
+ItemsListInput.propTypes = {
+  data: string.isRequired,
+  type: string.isRequired,
+  total: number.isRequired,
+  item: shape({
+    name: string.isRequired,
+    quantity: number.isRequired,
+    price: number.isRequired,
+    total: number.isRequired,
+  }).isRequired,
+};
 
 export default ItemsListInput;

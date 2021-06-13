@@ -7,6 +7,8 @@ import {
   descriptionInputConfig,
 } from '../../utils/constants';
 
+import { formatNumber } from '../../utils/helpers';
+
 import Input from './input/Input';
 import Dropdown from '../common/dropdown/Dropdown';
 import ItemsList from './itemslist/ItemsList';
@@ -22,7 +24,7 @@ const Form = () => {
   const thisForm = formConfig[currentForm];
 
   const {
-    isValid, handleSubmit, // closeForm,
+    isValid, handleSubmit,
   } = React.useContext(FormContext);
 
   return currentForm && (
@@ -45,7 +47,9 @@ const Form = () => {
           <Dropdown type="paymentTerms" />
           <Input data={descriptionInputConfig} />
         </FieldSet>
-        <ItemsList items={currentInvoice.items} />
+        <ItemsList
+          items={currentInvoice.items.map((item) => ({ ...item, price: formatNumber(item.price) }))}
+        />
       </FormContainer>
       <Buttons form={currentForm}>
         {currentForm === 'edit' ? (
