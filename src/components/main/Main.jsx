@@ -12,15 +12,20 @@ function Main() {
   const { currentInvoice, invoices } = React.useContext(AppContext);
   const numInvoices = invoices.length;
 
-  if (numInvoices === 0) {
-    return (<main><NothingHere /></main>);
-  }
-
   if (currentInvoice && currentInvoice.clientName) {
     return (
       <main>
         <InvoiceToolbar />
         <Invoice />
+      </main>
+    );
+  }
+
+  if (numInvoices === 0) {
+    return (
+      <main>
+        <SummaryHeader />
+        <NothingHere />
       </main>
     );
   }

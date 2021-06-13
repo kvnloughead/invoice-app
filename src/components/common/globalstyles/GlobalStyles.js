@@ -13,7 +13,10 @@ const GlobalStyles = createGlobalStyle`
   }
 
   main {
-    padding-bottom: 200px;
+    padding: 0 20px 200px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   #root {

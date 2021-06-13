@@ -10,7 +10,7 @@ const Container = styled.li`
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
-  width: 104px;
+  max-width: 104px;
   height: 40px;
   color: ${(props) => props.status && paidStatusColors[props.status].color};
   background: ${(props) => props.status && paidStatusColors[props.status].background};

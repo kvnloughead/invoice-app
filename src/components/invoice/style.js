@@ -14,7 +14,8 @@ export const InvoiceContainer = styled.div`
   ${primaryTextStyles}
   margin: auto;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 800px) {
+    width: 100%;
   }
 `;
 

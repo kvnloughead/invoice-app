@@ -7,6 +7,7 @@ export const NothingHere = styled.img.attrs(({ theme }) => ({
   src: theme.isLight ? nothingHere : nothingHereDark,
 }))`
   padding-top: 141px;
+  margin: auto;
 `;
 
 export const SummaryContainer = styled.div`
@@ -14,6 +15,7 @@ export const SummaryContainer = styled.div`
   padding-top: 65px;
   margin: auto;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 800px) {
+    width: 100%;
   }
 `;

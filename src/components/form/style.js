@@ -5,7 +5,7 @@ export const FormContainer = styled.form`
   visibility: ${({ form }) => (form ? 'visible' : 'hidden')};
   background: ${({ theme }) => theme.bgForm};
   border-radius: 25px;
-  width: 719px;
+  max-width: 719px;
   padding: 56px 56px 0 159px;
   position: absolute;
   left: 0;
@@ -15,6 +15,12 @@ export const FormContainer = styled.form`
   overflow-y: overlay;
   height: 100vh;
   border-radius: 0 30px 30px 0;
+
+  @media screen and (max-width: 1000px) {
+    top: 103px;
+    padding-left: 56px;
+    max-width: 616px;
+  }
 
 `;
 
@@ -68,6 +74,12 @@ export const Buttons = styled.div`
 
   box-sizing: border-box;
   border-radius: 0 30px 30px 0;
+
+  @media screen and (max-width: 1000px) {
+    left: 0;
+    padding-left: 56px;
+    width: 616px;
+  }
 `;
 
 export const FlexRow = styled.div`

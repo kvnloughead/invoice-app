@@ -43,7 +43,7 @@ export const FormLabel = styled.label`
 export const FormSelect = styled.select`
   background: ${({ theme }) => theme.bgInput};
   color: ${({ theme }) => theme.colorInput};
-  width: 240px;
+  max-width: 240px;
   height: 48px;
   border-radius: 5px;
   border: rgba(0, 0, 0, 0.5) 1px solid;

@@ -10,12 +10,20 @@ const headerFontStyles = css`
 export const Table = styled.table`
   margin-top: 45px;
   grid-row: 5;
+
+  @media screen and (max-width: 800px) {
+    grid-column: 1 / 4;
+  }
 `;
 
 export const TableRow = styled.tr`
   display: grid;
   grid-template-columns: 286px 29px 118px 126px;
   padding: 0 32px;
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr 29px 118px 126px;
+  }
 `;
 
 export const TH = styled.th`

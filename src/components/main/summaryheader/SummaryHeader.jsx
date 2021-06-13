@@ -18,16 +18,15 @@ const SummaryHeader = ({ numInvoices }) => {
     setIsOverlayOpen(true);
   };
 
+  const invoiceCountString = numInvoices > 0 ? `There are ${numInvoices} total invoices` : 'No invoices';
+
   return (
     <>
       <Container>
         <div>
           <Title>Invoices</Title>
           <Text>
-            There are
-            {` ${numInvoices}`}
-            {' '}
-            total invoices
+            {invoiceCountString}
           </Text>
         </div>
         <Row ai="center">

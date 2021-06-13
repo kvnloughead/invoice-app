@@ -23,6 +23,11 @@ export const SummaryContainer = styled.ul`
   box-shadow: 0px 10px 10px -10px #48549F1A;
   border-radius: 8px;
   ${fontStyles}
+
+  @media screen and (max-width: 550px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 39px 39px 1fr;
+  }
 `;
 
 export const Id = styled.li`
