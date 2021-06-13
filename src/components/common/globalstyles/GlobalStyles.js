@@ -12,6 +12,10 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
   }
 
+  main {
+    padding-bottom: 200px;
+  }
+
   #root {
     display: grid;
     grid-template-columns: 103px 1fr;

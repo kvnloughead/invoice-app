@@ -13,27 +13,27 @@ function Main() {
   const numInvoices = invoices.length;
 
   if (numInvoices === 0) {
-    return (<NothingHere />);
+    return (<main><NothingHere /></main>);
   }
 
   if (currentInvoice && currentInvoice.clientName) {
     return (
-      <div>
+      <main>
         <InvoiceToolbar />
         <Invoice />
-      </div>
+      </main>
     );
   }
 
   return (
-    <div>
+    <main>
       <SummaryHeader numInvoices={numInvoices} />
       <SummaryContainer>
         {invoices.map((invoice) => (
           <InvoiceSummary data={invoice} key={invoice.id} />
         ))}
       </SummaryContainer>
-    </div>
+    </main>
   );
 }
 
