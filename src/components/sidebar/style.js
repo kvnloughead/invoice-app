@@ -18,7 +18,10 @@ export const SidebarContainer = styled.aside`
   bottom: 0;
 
   @media screen and (max-width: 1000px) {
-    
+    width: 100%;
+    height: 103px;
+    flex-direction: row;
+    border-radius: 0;
   }
 `;
 
@@ -54,21 +57,26 @@ export const Logo = styled.div`
     z-index: 2;
     ${bgStandard(logo)}
   }
-
-  @media screen and (max-width: 1000px) {
-  }
 `;
 
-export const FlexColumn = styled.div`
+export const Div = styled.div`
   ${flexCenter('column')}
   width: 100%;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 100%;
+  }
 `;
 
 export const Avatar = styled.img`
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  padding: 31px 0;
+  padding: 31px;
+
   @media screen and (max-width: 1000px) {
+    
   }
 `;

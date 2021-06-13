@@ -2,10 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 import calendarIcon from '../../../images/icon-calendar.svg';
 
-// display: flex;
-//     flex-direction: column;
-//     align-items: center;
-
 const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.bgMain};
@@ -19,6 +15,11 @@ const GlobalStyles = createGlobalStyle`
   #root {
     display: grid;
     grid-template-columns: 103px 1fr;
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 103px 1fr;
+    }
   }
 
   form::-webkit-scrollbar {

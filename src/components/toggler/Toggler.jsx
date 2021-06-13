@@ -18,9 +18,9 @@ const Button = styled.button`
   border-bottom: solid 1px #494E6E;
 
   @media screen and (max-width: 1000px) {
-    transform: rotate(90deg);
     border-bottom: none;
     border-right: solid 1px #494E6E;
+    height: 100%;
   }
 `;
 
