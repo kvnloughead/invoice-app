@@ -16,6 +16,11 @@ const Container = styled.li`
   background: ${(props) => props.status && paidStatusColors[props.status].background};
   border-radius: 3px;
   justify-self: end;
+  padding: 0 18px;
+
+  @media screen and (max-width: 768px) {
+    grid-area: f;
+  }
 `;
 
 const Dot = styled.span`

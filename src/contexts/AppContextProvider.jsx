@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import AppContext from './AppContext';
-// import { processInvoices } from '../utils/helpers';
 import rawInvoices from '../utils/data.json';
 
 const AppContextProvider = ({ children }) => {
-  // const processedInvoices = useMemo(() => processInvoices(rawInvoices));
   const [invoices, setInvoices] = React.useState(rawInvoices);
   const [currentInvoice, setCurrentInvoice] = React.useState(null);
   const [currentForm, setCurrentForm] = React.useState(null);

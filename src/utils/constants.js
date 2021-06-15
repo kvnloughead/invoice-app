@@ -12,6 +12,19 @@ export const localeString = 'en-us';
 export const currency = '$';
 export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+// const pluralMarker = (number) => (number === 1 ? '' : 's');
+// const isOrAre = (number) => (number === 1 ? 'is' : 'are');
+
+export const summaryHeaderString = (numInvoices, isMobile) => {
+  const pluralMarker = numInvoices === 1 ? '' : 's';
+  const isOrAre = numInvoices === 1 ? 'is' : 'are';
+  const total = numInvoices > 1 ? 'total ' : '';
+  if (isMobile) {
+    return `${numInvoices} invoice${pluralMarker}`;
+  }
+  return `${numInvoices > 0 ? `There ${isOrAre} ${numInvoices} ${total}invoice${pluralMarker}` : 'No invoices'}`;
+};
+
 export const paidStatusColors = {
   paid: { color: 'rgba(51, 214, 159, 1)', background: 'rgba(51, 214, 159, .0571)' },
   pending: { color: 'rgba(255, 143, 0, 1)', background: 'rgba(255, 143, 0, .0571)' },

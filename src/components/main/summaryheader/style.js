@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { flexRowStyles } from '../../../utils/utility-styles';
+import { summaryHeaderString } from '../../../utils/constants';
 
 export const Container = styled.div`
   display: flex;
@@ -23,6 +24,10 @@ export const Title = styled.h1`
   margin: 0 0 8px;
 `;
 
+export const Row = styled.div`
+  ${flexRowStyles({ ai: 'center' })}
+`;
+
 export const Text = styled.p`
   font-weight: 500;
   font-size: 12px;
@@ -30,8 +35,14 @@ export const Text = styled.p`
   letter-spacing: -0.25px;
   color: ${({ theme }) => theme.colorSecondary};
   margin: 0;
-`;
 
-export const Row = styled.div`
-  ${flexRowStyles({ ai: 'center' })}
+  &:before {
+    content: "${({ numInvoices }) => summaryHeaderString(numInvoices)}"
+  }
+
+  @media screen and (max-width: 550px) {
+    &:before {
+      content: "${({ numInvoices }) => summaryHeaderString(numInvoices, true)}"
+    }
+  }
 `;

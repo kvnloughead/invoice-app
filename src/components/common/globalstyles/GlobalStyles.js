@@ -17,6 +17,11 @@ const GlobalStyles = createGlobalStyle`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-sizing: content-box;
+
+    @media screen and (max-width: 768px) {
+      padding: 0 24px 200px 24px;
+    }
   }
 
   #root {
