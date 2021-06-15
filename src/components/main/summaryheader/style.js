@@ -22,6 +22,11 @@ export const Title = styled.h1`
   line-height: 36px;
   letter-spacing: -1px;
   margin: 0 0 8px;
+
+  @media screen and (max-width: 550px) {
+    font-size: 22px;
+    line-height: 24px;
+  }
 `;
 
 export const Row = styled.div`

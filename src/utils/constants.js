@@ -12,9 +12,6 @@ export const localeString = 'en-us';
 export const currency = '$';
 export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-// const pluralMarker = (number) => (number === 1 ? '' : 's');
-// const isOrAre = (number) => (number === 1 ? 'is' : 'are');
-
 export const summaryHeaderString = (numInvoices, isMobile) => {
   const pluralMarker = numInvoices === 1 ? '' : 's';
   const isOrAre = numInvoices === 1 ? 'is' : 'are';
@@ -46,7 +43,7 @@ export const itemsListNames = {
 };
 
 export const buttonLabels = {
-  newInvoice: 'New Invoice',
+  newInvoice: (isMobile) => (isMobile ? 'New' : 'New Invoice'),
   markAsPaid: 'Mark as Paid',
   edit: 'Edit',
   saveAsDraft: 'Save as Draft',

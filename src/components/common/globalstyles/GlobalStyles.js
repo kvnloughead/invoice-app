@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
     justify-content: center;
     box-sizing: content-box;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 600px) {
       padding: 0 24px 200px 24px;
     }
   }

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FlexRow } from '../utility';
+
 import {
   FormDropdownContainer,
   FormLabel, FormSelect, FormOption,
@@ -25,15 +27,15 @@ const Dropdown = ({ type }) => {
   }
 
   return (
-    <div>
-      <Label>{data.title}</Label>
+    <FlexRow>
+      <Label />
       <Select id={data.id}>
         <Option value="" />
         {data.options.map((option) => (
           <Option key={option} value={option}>{option}</Option>
         ))}
       </Select>
-    </div>
+    </FlexRow>
   );
 };
 

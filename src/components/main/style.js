@@ -15,7 +15,14 @@ export const SummaryContainer = styled.div`
   padding-top: 65px;
   margin: auto;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
   }
+
+  @media screen and (min-width: 550px) and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
 `;

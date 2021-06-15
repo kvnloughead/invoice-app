@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
-import { buttonLabels } from '../../../utils/constants';
+// import { buttonLabels } from '../../../utils/constants';
 import { ButtonContainer, PlusInCircle } from './style';
 
 const Button = ({
@@ -17,7 +17,7 @@ const Button = ({
       disabled={disabled}
     >
       {buttonStyle === 'newInvoice' && <PlusInCircle />}
-      { buttonLabels[buttonStyle] }
+      {/* { buttonLabels[buttonStyle] } */}
     </ButtonContainer>
   </>
 );

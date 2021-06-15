@@ -7,6 +7,16 @@ export const Label = styled.label`
   line-height: 15px;
   letter-spacing: -0.25px;
   color: ${({ theme }) => theme.colorPrimary};
+
+  &:before {
+    content: "Filter by Status";
+  }
+
+  @media screen and (max-width: 550px) {
+    &:before {
+      content: "Filter";
+    }
+  }
 `;
 
 export const Select = styled.select`
@@ -19,6 +29,10 @@ export const Select = styled.select`
   background-image: url('${selectArrow}');
   background-repeat: no-repeat;
   background-position: center;
+
+  @media screen and (max-width: 550px) {
+    margin-right: 0;
+  }
 `;
 
 export const Option = styled.option`

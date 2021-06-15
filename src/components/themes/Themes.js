@@ -25,7 +25,7 @@ export const lightTheme = {
       background: '#7C5DFA',
       hover: '#9277FF',
       color: '#FFF',
-      width: '150px',
+      width: (isMobile) => (isMobile ? '90px' : '150px'),
     },
     markAsPaid: {
       background: '#7C5DFA',
@@ -104,7 +104,7 @@ export const darkTheme = {
       background: '#7C5DFA',
       hover: '#9277FF',
       color: '#FFF',
-      width: '150px',
+      width: (isMobile) => (isMobile ? '90px' : '150px'),
     },
     markAsPaid: {
       background: '#7C5DFA',
