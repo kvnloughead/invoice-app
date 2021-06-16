@@ -44,15 +44,15 @@ export const itemsListNames = {
 
 export const buttonLabels = {
   newInvoice: (isMobile) => (isMobile ? 'New' : 'New Invoice'),
-  markAsPaid: 'Mark as Paid',
-  edit: 'Edit',
-  saveAsDraft: 'Save as Draft',
-  saveChanges: 'Save Changes',
-  saveAndSend: 'Save & Send',
-  discard: 'Discard',
-  cancel: 'Cancel',
-  delete: 'Delete',
-  addNewItem: '+ Add New Item',
+  markAsPaid: () => 'Mark as Paid',
+  edit: () => 'Edit',
+  saveAsDraft: () => 'Save as Draft',
+  saveChanges: () => 'Save Changes',
+  saveAndSend: () => 'Save & Send',
+  discard: () => 'Discard',
+  cancel: () => 'Cancel',
+  delete: () => 'Delete',
+  addNewItem: () => '+ Add New Item',
 };
 
 export const dropdownConfig = {

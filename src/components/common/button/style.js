@@ -1,36 +1,37 @@
-/* eslint-disable max-len */
 import styled from 'styled-components';
 
 import plusIcon from '../../../images/icons/plus.svg';
 import { buttonLabels } from '../../../utils/constants';
 
 export const ButtonContainer = styled.button`
-  width: ${({ theme, buttonStyle }) => theme.button[buttonStyle].width()};
+  padding: 8px;
+  padding-right: ${(props) => props.buttonStyle === 'newInvoice' && '15px'};
   height: 48px;
+  width: ${({ theme, buttonStyle }) => theme.button[buttonStyle].width()};
+
+  background: ${({ theme, buttonStyle }) => theme.button[buttonStyle].background};
   border-radius: 200px;
   border: none;
+
+  font-family: 'Spartan', Arial, sans-serif;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
+  color: ${({ theme, buttonStyle }) => theme.button[buttonStyle].color};
+  
   display: flex;
   align-items: center;
-  padding: 8px;
-  font-family: 'Spartan', Arial, sans-serif;
+  justify-content:${(props) => (props.buttonStyle === 'newInvoice' ? 'space-between' : 'center')};
 
   &:after {
     content: "${({ buttonStyle }) => buttonLabels[buttonStyle]()}";
   }
   
-  color: ${({ theme, buttonStyle }) => theme.button[buttonStyle].color};
-  background: ${({ theme, buttonStyle }) => theme.button[buttonStyle].background};
   &:hover {
     background: ${({ theme, buttonStyle }) => theme.button[buttonStyle].hover};
     color: ${({ theme, buttonStyle }) => theme.button[buttonStyle].hoverColor};
   }
-
-  justify-content:${(props) => (props.buttonStyle === 'newInvoice' ? 'space-between' : 'center')};
-  padding-right: ${(props) => props.buttonStyle === 'newInvoice' && '15px'};
 
   @media screen and (max-width: 550px) {
     width: ${({ theme, buttonStyle }) => theme.button[buttonStyle].width(true)};
