@@ -31,7 +31,7 @@ export const Select = styled.select`
   background-position: center;
 
   @media screen and (max-width: 550px) {
-    margin-right: 0;
+    margin-right: 10px;
   }
 `;
 

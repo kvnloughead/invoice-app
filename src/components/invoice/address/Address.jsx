@@ -4,9 +4,9 @@ import PropTypes, { string } from 'prop-types';
 import { AddressContainer, AddressItem } from './style';
 
 const Address = (({
-  data, col, row, ta,
+  data, col, row, ta, name,
 }) => (
-  <AddressContainer col={col} row={row} ta={ta}>
+  <AddressContainer col={col} row={row} ta={ta} name={name}>
     {Object.entries(data).map((entry) => (
       <AddressItem key={`${entry[0]}-${entry[1]}-${Math.random()}`}>{entry[1]}</AddressItem>
     ))}
@@ -20,6 +20,7 @@ Address.propTypes = {
   ta: string, // text-align
   col: string,
   row: string,
+  name: string,
   data: PropTypes.shape({
     street: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
@@ -32,4 +33,5 @@ Address.defaultProps = {
   ta: 'left',
   col: '',
   row: '',
+  name: '',
 };

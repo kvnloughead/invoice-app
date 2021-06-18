@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
+import { invoiceMobileStyles } from '../../../utils/constants';
+
 export const AddressContainer = styled.address`
   display: flex;
   flex-direction: column;
-  grid-column: 3;
   text-align: ${({ ta }) => ta};
   grid-column: ${({ col }) => col};
   grid-row: ${({ row }) => row};
+
+  @media screen and (max-width: 768px) {
+    grid-column: ${({ col, name }) => (invoiceMobileStyles[name] ? invoiceMobileStyles[name].col : col)};
+    text-align: ${({ ta, name }) => (invoiceMobileStyles[name] ? invoiceMobileStyles[name].ta : ta)};
+  }
 `;
 
 export const AddressItem = styled.p`

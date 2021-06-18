@@ -22,6 +22,7 @@ export const SummaryContainer = styled.ul`
   margin-bottom: 16px;
   box-shadow: 0px 10px 10px -10px #48549F1A;
   border-radius: 8px;
+  position: relative;
   ${fontStyles}
 
   @media screen and (max-width: 768px) {
@@ -93,6 +94,11 @@ export const ViewInvoiceButton = styled.button`
   justify-self: center;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    background: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
   }
 `;

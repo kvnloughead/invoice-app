@@ -19,7 +19,7 @@ const Invoice = () => {
         <Id>{currentInvoice.id}</Id>
         <Description>{currentInvoice.description}</Description>
       </TopLeft>
-      <Address ta="right" data={currentInvoice.senderAddress} />
+      <Address col="3" ta="right" name="sendTo" data={currentInvoice.senderAddress} />
       <Middle>
         <Label col="1">Invoice Date</Label>
         <Item row="2" col="1">{formatDate(currentInvoice.createdAt)}</Item>
@@ -28,8 +28,8 @@ const Invoice = () => {
         <Label row="1" col="2">Bill To</Label>
         <Item row="2" col="2">{currentInvoice.clientName}</Item>
         <Address row="3" col="2" data={currentInvoice.clientAddress} />
-        <Label row="1" col="3">Sent to</Label>
-        <Item row="2" col="3">{currentInvoice.clientEmail}</Item>
+        <Label row="1" col="3" name="sentTo">Sent to</Label>
+        <Item row="2" col="3" name="sentTo">{currentInvoice.clientEmail}</Item>
       </Middle>
       <SentTo />
       <InvoiceItems items={currentInvoice.items} total={currentInvoice.total} />

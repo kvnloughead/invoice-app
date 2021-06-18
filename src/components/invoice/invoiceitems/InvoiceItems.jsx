@@ -3,26 +3,29 @@ import PropTypes, { string, number, oneOfType } from 'prop-types';
 
 import { lineItemNames } from '../../../utils/constants';
 import { formatLineItems, formatCurrency } from '../../../utils/helpers';
+// import AppContext from '../../../contexts/AppContext';
 import {
-  Table, TableRow, TH, TD, TableFooterRow, TF,
+  Table, TableHeader, TableRow, TH, TD, TableFooterRow, TF,
 } from './style';
 
 const InvoiceItems = (({ items, total }) => {
   const formattedItems = formatLineItems(items);
+  // const { windowInnerWidth } = React.useContext(AppContext);
+  // const isMobile = windowInnerWidth <= 768;
   return (
     <Table>
-      <thead>
+      <TableHeader>
         <TableRow>
           {Object.entries(formattedItems[0]).map((entry, i) => (
             <TH key={entry} row={i}>{lineItemNames[entry[0]]}</TH>
           ))}
         </TableRow>
-      </thead>
+      </TableHeader>
       <tbody>
         {formattedItems.map((item) => (
           <TableRow key={Math.random()}>
             {Object.entries(item).map((entry, i) => (
-              <TD key={Math.random()} row={i}>{entry[1]}</TD>
+              <TD key={Math.random()} name={entry[0]} row={i}>{entry[1]}</TD>
             ))}
           </TableRow>
         ))}

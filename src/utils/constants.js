@@ -275,3 +275,20 @@ export const blankInvoice = {
   ],
   total: 0,
 };
+
+export const invoiceMobileStyles = {
+  sentTo: {
+    label: {
+      row: 6,
+      col: 1,
+    },
+    item: {
+      row: 7,
+      col: 1,
+    },
+  },
+  sendTo: {
+    col: 2,
+    ta: 'left',
+  },
+};
