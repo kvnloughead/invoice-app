@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { lineItemMobileStyles } from '../../../utils/constants';
+
 const headerFontStyles = css`
   font-weight: 500; 
   font-size: 11px;
@@ -12,6 +14,7 @@ export const Table = styled.table`
   grid-row: 5;
   background: ${({ theme }) => theme.bgInvoiceItems};
   border-radius: 10px;
+  padding-top: 32px;
 
   @media screen and (max-width: 800px) {
     grid-column: 1 / 4;
@@ -19,6 +22,7 @@ export const Table = styled.table`
 
   @media screen and (max-width: 768px) {
     grid-column: 1 / 2;
+    padding-top: 24px;
   }
 `;
 
@@ -38,7 +42,13 @@ export const TableRow = styled.tr`
   }
 
   @media screen and (max-width: 768px) {
-    grid-template-columns: 148px 148px;
+    padding: 0 24px;
+    margin-bottom: 24px;
+    grid-row-gap: 8px;
+    grid-template-columns: 1fr 124px 148px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "a a b"
+                         "c d b";
   }
 `;
 
@@ -46,7 +56,7 @@ export const TH = styled.th`
   ${headerFontStyles}
   padding-bottom: 32px;
   color: ${({ theme }) => theme.colorSecondary};
-  text-align: ${({ row }) => ['left', 'center', 'right', 'right'][row]};
+  text-align: ${({ col }) => ['left', 'center', 'right', 'right'][col]};
   
   @media screen and (max-width: 768px) {
     margin-top: 24px;
@@ -59,7 +69,19 @@ export const TD = styled.td`
   line-height: 15px;
   letter-spacing: -0.25px;
   padding-bottom: 32px;
-  text-align: ${({ row }) => ['left', 'center', 'right', 'right'][row]};
+  text-align: ${({ col }) => ['left', 'center', 'right', 'right'][col]};
+
+  @media screen and (max-width: 768px) {
+    padding-bottom: 0;
+    grid-area: ${({ name }) => lineItemMobileStyles.gridAreas[name]};
+    text-align: ${({ name }) => lineItemMobileStyles.textAlign[name]};
+    color: ${({ name }) => lineItemMobileStyles.color[name]};
+    align-self: ${({ name }) => lineItemMobileStyles.alignSelf[name]};
+
+    &:after {
+      content: "${({ name }) => name === 'quantity' && '\xa0\xa0x\xa0'}";
+    }
+  }
 `;
 
 export const TableFooterRow = styled.tr`
@@ -70,6 +92,10 @@ export const TableFooterRow = styled.tr`
   border-radius: 0 0 10px 10px;
   height: 80px;
   padding: 0 32px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 24px;
+  }
 `;
 
 export const TF = styled.td`

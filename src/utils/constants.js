@@ -292,3 +292,25 @@ export const invoiceMobileStyles = {
     ta: 'left',
   },
 };
+
+export const lineItemMobileStyles = {
+  gridAreas: {
+    name: 'a',
+    quantity: 'c',
+    price: 'd',
+    total: 'b',
+  },
+  textAlign: {
+    name: 'left',
+    quantity: 'left',
+    price: 'left',
+    total: 'right',
+  },
+  alignSelf: {
+    total: 'center',
+  },
+  color: {
+    quantity: '#888EB0',
+    price: '#888EB0',
+  },
+};

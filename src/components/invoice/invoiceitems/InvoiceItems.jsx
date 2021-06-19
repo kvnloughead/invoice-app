@@ -17,7 +17,7 @@ const InvoiceItems = (({ items, total }) => {
       <TableHeader>
         <TableRow>
           {Object.entries(formattedItems[0]).map((entry, i) => (
-            <TH key={entry} row={i}>{lineItemNames[entry[0]]}</TH>
+            <TH key={entry} col={i}>{lineItemNames[entry[0]]}</TH>
           ))}
         </TableRow>
       </TableHeader>
@@ -25,7 +25,7 @@ const InvoiceItems = (({ items, total }) => {
         {formattedItems.map((item) => (
           <TableRow key={Math.random()}>
             {Object.entries(item).map((entry, i) => (
-              <TD key={Math.random()} name={entry[0]} row={i}>{entry[1]}</TD>
+              <TD key={Math.random()} name={entry[0]} col={i}>{entry[1]}</TD>
             ))}
           </TableRow>
         ))}
