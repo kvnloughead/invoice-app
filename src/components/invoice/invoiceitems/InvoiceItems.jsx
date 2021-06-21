@@ -3,15 +3,12 @@ import PropTypes, { string, number, oneOfType } from 'prop-types';
 
 import { lineItemNames } from '../../../utils/constants';
 import { formatLineItems, formatCurrency } from '../../../utils/helpers';
-// import AppContext from '../../../contexts/AppContext';
 import {
   Table, TableHeader, TableRow, TH, TD, TableFooterRow, TF,
 } from './style';
 
 const InvoiceItems = (({ items, total }) => {
   const formattedItems = formatLineItems(items);
-  // const { windowInnerWidth } = React.useContext(AppContext);
-  // const isMobile = windowInnerWidth <= 768;
   return (
     <Table>
       <TableHeader>

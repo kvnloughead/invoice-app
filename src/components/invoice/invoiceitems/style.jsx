@@ -21,8 +21,13 @@ export const Table = styled.table`
   }
 
   @media screen and (max-width: 768px) {
-    grid-column: 1 / 2;
+    grid-column: 1 / 3;
     padding-top: 24px;
+  }
+
+  @media screen and (max-width: 375px) {
+    width: calc(100% + 48px);
+    margin-left: -24px;
   }
 `;
 
@@ -45,7 +50,7 @@ export const TableRow = styled.tr`
     padding: 0 24px;
     margin-bottom: 24px;
     grid-row-gap: 8px;
-    grid-template-columns: 1fr 124px 148px;
+    grid-template-columns: 1fr minmax(80px, 148px) minmax(60px, 124px) ;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "a a b"
                          "c d b";
@@ -95,6 +100,7 @@ export const TableFooterRow = styled.tr`
 
   @media screen and (max-width: 768px) {
     margin-top: 24px;
+    padding: 0 24px;
   }
 `;
 
@@ -106,5 +112,10 @@ export const TF = styled.td`
   color: #ffffff;
   &:first-of-type {
     ${headerFontStyles}
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    line-height: 32px;
   }
 `;

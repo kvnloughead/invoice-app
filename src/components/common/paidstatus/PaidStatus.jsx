@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { capitalizeFirstLetter } from '../../../utils/helpers';
 import { paidStatusColors } from '../../../utils/constants';
 
-const Container = styled.li`
+const Container = styled.div`
   text-align: center;
   font-weight: 700;
   font-size: 12px;

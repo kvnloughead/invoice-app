@@ -22,6 +22,9 @@ export const secondaryTextStyles = css`
   line-height: 15px;
   letter-spacing: -0.25px;
   color: ${({ theme }) => theme.colorSecondary};
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 export const primaryTextStyles = css`
@@ -31,6 +34,9 @@ export const primaryTextStyles = css`
   letter-spacing: -0.3125px;
   font-style: normal;
   color: ${({ theme }) => theme.colorPrimary};
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 export const flexRowStyles = ({ ai, jc }) => css`

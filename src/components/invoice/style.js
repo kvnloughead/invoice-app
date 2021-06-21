@@ -6,6 +6,7 @@ import { invoiceMobileStyles } from '../../utils/constants';
 export const InvoiceContainer = styled.div`
   width: 730px;
   box-sizing: border-box;
+  border-radius: 10px;
   margin-top: 24px;
   background: ${({ theme }) => theme.bgInvoice};
   display: grid;
@@ -24,6 +25,15 @@ export const InvoiceContainer = styled.div`
     grid-template-rows: 75px 1fr;
     justify-content: center;
     padding: 48px 0;
+  }
+
+  @media screen and (max-width: 450px) {
+    grid-template-columns: 120px 1fr;
+    padding: 24px;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding-bottom: 0;
   }
 `;
 
@@ -66,6 +76,10 @@ export const Middle = styled.dl`
   @media screen and (max-width: 768px) {
     grid-template-columns: 180px 180px;
     grid-template-rows: 27px 28px 24px 27px 1fr 1fr 1fr;
+  }
+
+  @media screen and (max-width: 408px) {
+    grid-template-columns: 120px 1fr;
   }
 `;
 

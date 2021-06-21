@@ -56,9 +56,24 @@ export const Label = styled.h3`
 
 export const FlexRow = styled.div`
   ${flexRowStyles({ ai: 'center' })}
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 export const Buttons = styled.ul`
   ${flexRowStyles({})}
   gap: 8px;
+
+  @media screen and (max-width: 768px) {
+    padding: 21px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #1E2139;
+    width: 100%;
+    justify-content: center;
+  }
 `;
